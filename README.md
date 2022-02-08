@@ -1,5 +1,5 @@
 # Laravel Myanmar Tools
-မြန်မာဖောင့်၊ ဖုန်းနံပါတ် နဲ့ တခြား myanmar-tools တွေကို Laravel's core မှာ extend လုပ်ထားတဲ့ package တစ်ခုပါ။ ရှိပြီးသား libiary တွေကို Laravel's Macro နဲ့ extend လုပ်ထားပါတယ်။
+မြန်မာဖောင့်၊ ဖုန်းနံပါတ် နဲ့ တခြား myanmar-tools တွေကို Laravel's core မှာ extend လုပ်ထားတဲ့ package တစ်ခုပါ။ ရှိပြီးသား library တွေကို Laravel's Macro နဲ့ extend လုပ်ထားပါတယ်။
 
 ## Installation
 ```bash
