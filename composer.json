@@ -5,15 +5,33 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Pyaesoneaung\\LaravelMyanmarTools\\": "src/"
+            "PyaeSoneAung\\LaravelMyanmarTools\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PyaeSoneAung\\LaravelMyanmarTools\\Tests\\": "tests"
         }
     },
     "authors": [
         {
             "name": "Pyae Sone Aung",
-            "email": "pyaesoneaung.code@gmail.com"
+            "email": "pyaesoneaungrgn@gmail.com"
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "prefer-stable" : true,
+    "require": {
+        "php": ">=7.0.0",
+        "cyberwings/myanmar-phone-number-php": "^0.0.3",
+        "googlei18n/myanmar-tools": "^1.2",
+        "rabbit-converter/rabbit-php": "dev-master"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PyaeSoneAung\\LaravelMyanmarTools\\LaravelMyanmarToolsServiceProvider"
+            ]
+        }
+    }
 }
