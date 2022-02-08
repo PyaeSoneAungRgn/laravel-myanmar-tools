@@ -41,6 +41,9 @@ Str::isMytel('09251234567'); // return false
 
 ## Credits
 [A set of useful Laravel collection macros](https://github.com/spatie/laravel-collection-macros)
+
 [myanmar-phone-number-php](https://github.com/johnreginald/myanmar-phone-number-php)
+
 [Myanmar Tools (Zawgyi detection & conversion)](https://github.com/google/myanmar-tools)
+
 [Rabbit-PHP](https://github.com/Rabbit-Converter/Rabbit-PHP)
