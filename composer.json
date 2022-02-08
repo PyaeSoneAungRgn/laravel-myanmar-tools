@@ -1,0 +1,19 @@
+{
+    "name": "pyaesoneaung/laravel-myanmar-tools",
+    "description": "Myanmar tools which extend Laravel’s core",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pyaesoneaung\\LaravelMyanmarTools\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pyae Sone Aung",
+            "email": "pyaesoneaung.code@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
