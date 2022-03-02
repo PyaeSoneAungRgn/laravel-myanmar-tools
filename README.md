@@ -1,5 +1,5 @@
 # Laravel Myanmar Tools
-မြန်မာဖောင့်၊ ဖုန်းနံပါတ် နဲ့ တခြား myanmar-tools တွေကို Laravel's core မှာ extend လုပ်ထားတဲ့ package တစ်ခုပါ။ ရှိပြီးသား libiary တွေကို Laravel's Macro နဲ့ extend လုပ်ထားပါတယ်။
+မြန်မာဖောင့်၊ ဖုန်းနံပါတ် နဲ့ တခြား myanmar-tools တွေကို Laravel's core မှာ extend လုပ်ထားတဲ့ package တစ်ခုပါ။ ရှိပြီးသား library တွေကို Laravel's Macro နဲ့ extend လုပ်ထားပါတယ်။
 
 ## Installation
 ```bash
@@ -80,6 +80,9 @@ Str::telecomName('09251234567'); // return "MPT"
 
 ## Credits
 [A set of useful Laravel collection macros](https://github.com/spatie/laravel-collection-macros)
+
 [myanmar-phone-number-php](https://github.com/johnreginald/myanmar-phone-number-php)
+
 [Myanmar Tools (Zawgyi detection & conversion)](https://github.com/google/myanmar-tools)
+
 [Rabbit-PHP](https://github.com/Rabbit-Converter/Rabbit-PHP)
