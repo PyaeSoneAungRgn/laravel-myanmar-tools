@@ -5,38 +5,77 @@
 ```bash
 composer require pyaesoneaung/laravel-myanmar-tools
 ```
-
-## Usage
-### Str
+## Str
+### Check Unicode Font
 ```php
 use Illuminate\Support\Str;
-
-// Font
 Str::isUnicodeFont('မြန်မာပြည်'); // return true
+```
 
+### Check Zawgyi Font
+```php
+use Illuminate\Support\Str;
 Str::isZawgyiFont('ျမန္မာျပည္'); // return true
+```
 
+### Detect Myanmar Font
+```php
+use Illuminate\Support\Str;
 Str::detectMyanmarFont('မြန်မာပြည်'); // return "unicode"
+```
 
+### Convert Zawgyi to Unicode
+```php
+use Illuminate\Support\Str;
 Str::zgToUni('ျမန္မာျပည္'); // return "မြန်မာပြည်"
+```
 
+### Convert Unicode to Zawgyi
+```php
+use Illuminate\Support\Str;
 Str::uniToZg('မြန်မာပြည်'); // return "ျမန္မာျပည္"
+```
 
-
-// Phone
+### Check Myanmar Phone Number
+```php
+use Illuminate\Support\Str;
 Str::isMyanmarPhoneNumber('09251234567'); // return true
+```
 
-Str::telecomName('09251234567'); // return "MPT"
-
+### Check MPT
+```php
+use Illuminate\Support\Str;
 Str::isMpt('09251234567'); // return true
+```
 
+### Check Ooredoo
+```php
+use Illuminate\Support\Str;
 Str::isOoredoo('09251234567'); // return false
+```
 
+### Check Telenor
+```php
+use Illuminate\Support\Str;
 Str::isTelenor('09251234567'); // return false
+```
 
+### Check MEC
+```php
+use Illuminate\Support\Str;
 Str::isMec('09251234567'); // return false
+```
 
+### Check Mytel
+```php
+use Illuminate\Support\Str;
 Str::isMytel('09251234567'); // return false
+```
+
+### Get Telecom Name
+```php
+use Illuminate\Support\Str;
+Str::telecomName('09251234567'); // return "MPT"
 ```
 
 ## Credits
