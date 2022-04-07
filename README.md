@@ -143,7 +143,7 @@ $request->telecomName('09251234567'); // return "MPT"
 * 1.1
     * request macros added
 * 1.0
-    * Initial Release
+    * initial release
 
 ## Credits
 [A set of useful Laravel collection macros](https://github.com/spatie/laravel-collection-macros)
