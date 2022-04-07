@@ -81,7 +81,7 @@ Str::telecomName('09251234567'); // return "MPT"
 ## Request
 ### Check Unicode Font
 ```php
-request()->isUnicodeFont('မြန်မာပြည်'); // return true
+$request->isUnicodeFont('မြန်မာပြည်'); // return true
 ```
 
 ### Check Zawgyi Font
