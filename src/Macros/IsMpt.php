@@ -1,6 +1,6 @@
 <?php
 
-namespace PyaeSoneAung\LaravelMyanmarTools\Macros\Str;
+namespace PyaeSoneAung\LaravelMyanmarTools\Macros;
 
 use CyberWings\MyanmarPhoneNumber;
 

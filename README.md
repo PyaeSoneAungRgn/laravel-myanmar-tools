@@ -78,6 +78,73 @@ use Illuminate\Support\Str;
 Str::telecomName('09251234567'); // return "MPT"
 ```
 
+## Request
+### Check Unicode Font
+```php
+request()->isUnicodeFont('မြန်မာပြည်'); // return true
+```
+
+### Check Zawgyi Font
+```php
+$request->isZawgyiFont('ျမန္မာျပည္'); // return true
+```
+
+### Detect Myanmar Font
+```php
+$request->detectMyanmarFont('မြန်မာပြည်'); // return "unicode"
+```
+
+### Convert Zawgyi to Unicode
+```php
+$request->zgToUni('ျမန္မာျပည္'); // return "မြန်မာပြည်"
+```
+
+### Convert Unicode to Zawgyi
+```php
+$request->uniToZg('မြန်မာပြည်'); // return "ျမန္မာျပည္"
+```
+
+### Check Myanmar Phone Number
+```php
+$request->isMyanmarPhoneNumber('09251234567'); // return true
+```
+
+### Check MPT
+```php
+$request->isMpt('09251234567'); // return true
+```
+
+### Check Ooredoo
+```php
+$request->isOoredoo('09251234567'); // return false
+```
+
+### Check Telenor
+```php
+$request->isTelenor('09251234567'); // return false
+```
+
+### Check MEC
+```php
+$request->isMec('09251234567'); // return false
+```
+
+### Check Mytel
+```php
+$request->isMytel('09251234567'); // return false
+```
+
+### Get Telecom Name
+```php
+$request->telecomName('09251234567'); // return "MPT"
+```
+
+## Version History
+* 1.1
+    * request macros added
+* 1.0
+    * Initial Release
+
 ## Credits
 [A set of useful Laravel collection macros](https://github.com/spatie/laravel-collection-macros)
 
