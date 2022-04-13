@@ -1,9 +1,6 @@
 <?php
 
 namespace PyaeSoneAung\LaravelMyanmarTools\Macros;
-
-use Rabbit;
-
 class ZgToUni
 {
     public function __invoke()
