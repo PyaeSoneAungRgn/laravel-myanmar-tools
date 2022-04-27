@@ -1,0 +1,26 @@
+<?php
+
+namespace PyaeSoneAung\LaravelMyanmarTools\Macros\Collection;
+
+use Illuminate\Support\Collection;
+use Illuminate\Support\Arr;
+use PyaeSoneAung\LaravelMyanmarTools\Packages\RabbitPackage;
+
+class UniToZg
+{
+    public function __invoke()
+    {
+        return function (?string $col = null) : Collection {
+            return $this->map(function($item) use ($col) {
+                if ($col && Arr::exists($item, $col)) {
+                    return array_merge($item, [
+                        $col => RabbitPackage::uniToZg($item[$col])
+                    ]);
+                } elseif(is_string($item)) {
+                    return RabbitPackage::uniToZg($item);
+                }
+                return $item;
+            });
+        };
+    }
+}

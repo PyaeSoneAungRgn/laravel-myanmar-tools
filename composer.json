@@ -22,7 +22,7 @@
     "minimum-stability": "dev",
     "prefer-stable" : true,
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=7.1.0",
         "cyberwings/myanmar-phone-number-php": "^0.0.3",
         "googlei18n/myanmar-tools": "^1.2",
         "rabbit-converter/rabbit-php": "dev-master"
