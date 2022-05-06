@@ -10,14 +10,12 @@ class ZgToUni
 {
     public function __invoke()
     {
-        return function (?string $col = null) : Collection {
-            return $this->map(function($item) use ($col) {
-                if ($col && Arr::exists($item, $col)) {
-                    return array_merge($item, [
-                        $col => RabbitPackage::zgToUni($item[$col])
-                    ]);
-                } elseif(is_string($item)) {
+        return function (?string $key = null) : Collection {
+            return $this->map(function($item) use ($key) {
+                if (is_string($item)) {
                     return RabbitPackage::zgToUni($item);
+                } elseif ($key && Arr::has($item, $key)) {
+                    return Arr::set($item, $key, RabbitPackage::zgToUni($item[$key]));
                 }
                 return $item;
             });

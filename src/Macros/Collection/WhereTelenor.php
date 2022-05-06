@@ -10,14 +10,14 @@ class WhereTelenor
 {
     public function __invoke()
     {
-        return function (?string $col = null) : Collection {
-            return $this->filter(function($item) use ($col) {
-                if ($col && Arr::exists($item, $col)) {
-                    $searchKey = $item[$col];
-                } else {
-                    $searchKey = $item;
+        return function (?string $key = null) : Collection {
+            return $this->filter(function($item) use ($key) {
+                if (is_string($item)) {
+                    return MyanmarPhoneNumberPackage::isTelenor($item);
+                } elseif ($key && Arr::has($item, $key)) {
+                    return MyanmarPhoneNumberPackage::isTelenor(Arr::get($item, $key));
                 }
-                return is_string($searchKey) && MyanmarPhoneNumberPackage::isTelenor($searchKey);
+                return false;
             })->values();
         };
     }
