@@ -12,7 +12,7 @@ class UniToZg
     {
         return function (?string $key = null) : Collection {
             return $this->map(function($item) use ($key) {
-                if (is_string($item)) {
+                if (!$key && is_string($item)) {
                     return RabbitPackage::uniToZg($item);
                 } elseif ($key && Arr::has($item, $key)) {
                     return Arr::set($item, $key, RabbitPackage::uniToZg($item[$key]));

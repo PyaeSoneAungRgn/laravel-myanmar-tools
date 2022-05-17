@@ -12,7 +12,7 @@ class WhereOoredoo
     {
         return function (?string $key = null) : Collection {
             return $this->filter(function($item) use ($key) {
-                if (is_string($item)) {
+                if (!$key && is_string($item)) {
                     return MyanmarPhoneNumberPackage::isOoredoo($item);
                 } elseif ($key && Arr::has($item, $key)) {
                     return MyanmarPhoneNumberPackage::isOoredoo(Arr::get($item, $key));
