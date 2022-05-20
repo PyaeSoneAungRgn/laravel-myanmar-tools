@@ -1,6 +1,44 @@
 # Laravel Myanmar Tools
 A package for Myanmar Font, Phone and other Myanmar tools using Laravel Macro.
 
+## Table of Contents
+* [Installation](#installation)
+* [Str](#str)
+    * [Check Unicode Font](#check-unicode-font)
+    * [Check Zawgyi Font](#check-zawgyi-font)
+    * [Detect Myanmar Font](#detect-myanmar-font)
+    * [Convert Zawgyi to Unicode](#convert-zawgyi-to-unicode)
+    * [Convert Unicode to Zawgyi](#convert-unicode-to-zawgyi)
+    * [Check Myanmar Phone Number](#check-myanmar-phone-number)
+    * [Check MPT](#check-mpt)
+    * [Check Ooredoo](#check-ooredoo)
+    * [Check Telenor](#check-telenor)
+    * [Check MEC](#check-mec)
+    * [Check Mytel](#check-mytel)
+    * [Get Telecom Name](#get-telecom-name)
+* [Request](#request)
+    * [Check Unicode Font](#check-unicode-font-1)
+    * [Check Zawgyi Font](#check-zawgyi-font-1)
+    * [Detect Myanmar Font](#detect-myanmar-font-1)
+    * [Convert Zawgyi to Unicode](#convert-zawgyi-to-unicode-1)
+    * [Convert Unicode to Zawgyi](#convert-unicode-to-zawgyi-1)
+    * [Check Myanmar Phone Number](#check-myanmar-phone-number-1)
+    * [Check MPT](#check-mpt-1)
+    * [Check Ooredoo](#check-ooredoo-1)
+    * [Check Telenor](#check-telenor-1)
+    * [Check MEC](#check-mec-1)
+    * [Check Mytel](#check-mytel-1)
+    * [Get Telecom Name](#get-telecom-name-1)
+* [Collection](#collection)
+    * [whereMyanmarPhoneNumber](#wheremyanmarphonenumber)
+    * [whereMpt](#wherempt)
+    * [whereOoredoo](#whereooredoo)
+    * [whereTelenor](#wheretelenor)
+    * [whereMec](#wheremec)
+    * [whereMytel](#wheremytel)
+    * [uniToZg](#unitozg)
+    * [zgToUni](#zgtouni)
+
 ## Installation
 ```bash
 composer require pyaesoneaung/laravel-myanmar-tools
