@@ -8,8 +8,8 @@ class IsUnicodeFont
 {
     public function __invoke()
     {
-        return function ($value) : bool {
-            return ZawgyiDetectorPackage::isUnicodeFont($value);
+        return function (string $key) : bool {
+            return ZawgyiDetectorPackage::isUnicodeFont($this->input($key));
         };
     }
 }

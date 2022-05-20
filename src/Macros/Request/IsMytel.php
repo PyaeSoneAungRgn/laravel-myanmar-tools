@@ -8,8 +8,8 @@ class IsMytel
 {
     public function __invoke()
     {
-        return function ($value) : bool {
-            return MyanmarPhoneNumberPackage::isMytel($value);
+        return function (string $key) : bool {
+            return MyanmarPhoneNumberPackage::isMytel($this->input($key));
         };
     }
 }

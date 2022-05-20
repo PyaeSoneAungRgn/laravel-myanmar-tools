@@ -8,8 +8,8 @@ class ZgToUni
 {
     public function __invoke()
     {
-        return function ($value) : string {
-            return RabbitPackage::zgToUni($value);
+        return function (string $key) : string {
+            return RabbitPackage::zgToUni($this->input($key));
         };
     }
 }

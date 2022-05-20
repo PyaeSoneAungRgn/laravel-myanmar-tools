@@ -8,8 +8,8 @@ class TelecomName
 {
     public function __invoke()
     {
-        return function ($value) : string {
-            return MyanmarPhoneNumberPackage::telecomName($value);
+        return function (string $key) : string {
+            return MyanmarPhoneNumberPackage::telecomName($this->input($key));
         };
     }
 }

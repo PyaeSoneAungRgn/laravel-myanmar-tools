@@ -8,8 +8,8 @@ class IsMpt
 {
     public function __invoke()
     {
-        return function ($value) : bool {
-            return MyanmarPhoneNumberPackage::isMpt($value);
+        return function (string $key) : bool {
+            return MyanmarPhoneNumberPackage::isMpt($this->input($key));
         };
     }
 }

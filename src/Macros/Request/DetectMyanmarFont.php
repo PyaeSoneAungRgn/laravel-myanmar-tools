@@ -8,8 +8,8 @@ class DetectMyanmarFont
 {
     public function __invoke()
     {
-        return function ($value) : string {
-            return ZawgyiDetectorPackage::detectMyanmarFont($value);
+        return function (string $key): string {
+            return ZawgyiDetectorPackage::detectMyanmarFont($this->input($key));
         };
     }
 }

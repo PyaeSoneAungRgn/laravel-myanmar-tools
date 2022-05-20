@@ -8,8 +8,8 @@ class UniToZg
 {
     public function __invoke()
     {
-        return function ($value) : string {
-            return RabbitPackage::uniToZg($value);
+        return function (string $key) : string {
+            return RabbitPackage::uniToZg($this->input($key));
         };
     }
 }

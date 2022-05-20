@@ -8,8 +8,8 @@ class IsTelenor
 {
     public function __invoke()
     {
-        return function ($value) : bool {
-            return MyanmarPhoneNumberPackage::isTelenor($value);
+        return function (string $key) : bool {
+            return MyanmarPhoneNumberPackage::isTelenor($this->input($key));
         };
     }
 }

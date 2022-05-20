@@ -8,8 +8,8 @@ class IsMec
 {
     public function __invoke()
     {
-        return function ($value) : bool {
-            return MyanmarPhoneNumberPackage::isMec($value);
+        return function (string $key) : bool {
+            return MyanmarPhoneNumberPackage::isMec($this->input($key));
         };
     }
 }
