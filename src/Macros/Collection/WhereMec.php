@@ -12,7 +12,7 @@ class WhereMec
     {
         return function (?string $key = null) : Collection {
             return $this->filter(function($item) use ($key) {
-                if (!$key && is_string($item)) {
+                if ($key == null && is_string($item)) {
                     return MyanmarPhoneNumberPackage::isMec($item);
                 } elseif ($key && Arr::has($item, $key)) {
                     return MyanmarPhoneNumberPackage::isMec(Arr::get($item, $key));

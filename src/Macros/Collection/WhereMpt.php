@@ -12,7 +12,7 @@ class WhereMpt
     {
         return function (?string $key = null) : Collection {
             return $this->filter(function($item) use ($key) {
-                if (!$key && is_string($item)) {
+                if ($key == null && is_string($item)) {
                     return MyanmarPhoneNumberPackage::isMpt($item);
                 } elseif ($key && Arr::has($item, $key)) {
                     return MyanmarPhoneNumberPackage::isMpt(Arr::get($item, $key));

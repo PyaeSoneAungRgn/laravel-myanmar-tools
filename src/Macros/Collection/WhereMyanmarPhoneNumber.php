@@ -12,7 +12,7 @@ class WhereMyanmarPhoneNumber
     {
         return function (?string $key = null) : Collection {
             return $this->filter(function($item) use ($key) {
-                if (!$key && is_string($item)) {
+                if ($key == null && is_string($item)) {
                     return MyanmarPhoneNumberPackage::isMyanmarPhoneNumber($item);
                 } elseif ($key && Arr::has($item, $key)) {
                     return MyanmarPhoneNumberPackage::isMyanmarPhoneNumber(Arr::get($item, $key));

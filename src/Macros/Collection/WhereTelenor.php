@@ -12,7 +12,7 @@ class WhereTelenor
     {
         return function (?string $key = null) : Collection {
             return $this->filter(function($item) use ($key) {
-                if (!$key && is_string($item)) {
+                if ($key == null && is_string($item)) {
                     return MyanmarPhoneNumberPackage::isTelenor($item);
                 } elseif ($key && Arr::has($item, $key)) {
                     return MyanmarPhoneNumberPackage::isTelenor(Arr::get($item, $key));
