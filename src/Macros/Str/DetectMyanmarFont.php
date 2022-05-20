@@ -8,7 +8,7 @@ class DetectMyanmarFont
 {
     public function __invoke()
     {
-        return function ($value) : string {
+        return function (?string $value) : string {
             return ZawgyiDetectorPackage::detectMyanmarFont($value);
         };
     }

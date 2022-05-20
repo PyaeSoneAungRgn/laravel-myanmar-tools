@@ -8,7 +8,7 @@ class IsMec
 {
     public function __invoke()
     {
-        return function ($value) : bool {
+        return function (?string $value) : bool {
             return MyanmarPhoneNumberPackage::isMec($value);
         };
     }

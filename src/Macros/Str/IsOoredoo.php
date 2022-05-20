@@ -8,7 +8,7 @@ class IsOoredoo
 {
     public function __invoke()
     {
-        return function ($value) : bool {
+        return function (?string $value) : bool {
             return MyanmarPhoneNumberPackage::isOoredoo($value);
         };
     }

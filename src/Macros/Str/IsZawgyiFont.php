@@ -8,7 +8,7 @@ class IsZawgyiFont
 {
     public function __invoke()
     {
-        return function ($value) : bool {
+        return function (?string $value) : bool {
             return ZawgyiDetectorPackage::isZawgyiFont($value);
         };
     }

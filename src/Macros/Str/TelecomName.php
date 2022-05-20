@@ -8,7 +8,7 @@ class TelecomName
 {
     public function __invoke()
     {
-        return function ($value) : string {
+        return function (?string $value) : string {
             return MyanmarPhoneNumberPackage::telecomName($value);
         };
     }
