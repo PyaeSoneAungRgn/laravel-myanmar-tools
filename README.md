@@ -70,17 +70,106 @@ Str::isMec('0930000000'); // return true
 #### Check Mytel
 ```php
 use Illuminate\Support\Str;
-Str::isMytel('09690000000') // return true
+Str::isMytel('09690000000'); // return true
 ```
 
 #### Get Telecom Name
 ```php
 use Illuminate\Support\Str;
-Str::telecomName('09251234567'); // return 'mpt'
+Str::telecomName('09250000000'); // return 'mpt'
 Str::telecomName('09970000000'); // return 'ooredoo'
 Str::telecomName('09790000000'); // return 'telenor'
 Str::telecomName('0930000000');  // return 'mec'
 Str::telecomName('09690000000'); // return 'mytel'
+```
+
+
+## Request
+#### Check Unicode Font
+```php
+// https://domain/path?name=မြန်မာပြည်
+$request->isUnicodeFont('name'); // return true
+```
+
+#### Check Zawgyi Font
+```php
+// https://domain/path?name=ျမန္မာျပည္
+$request->isZawgyiFont('name'); // return true
+```
+
+#### Detect Myanmar Font
+```php
+// https://domain/path?name=မြန်မာပြည်
+$request->detectMyanmarFont('name'); // return 'unicode'
+
+// https://domain/path?name=ျမန္မာျပည္
+$request->detectMyanmarFont('name'); // return 'zawgyi'
+```
+
+#### Convert Zawgyi to Unicode
+```php
+// https://domain/path?name=ျမန္မာျပည္
+$request->zgToUni('name'); // return 'မြန်မာပြည်'
+```
+
+#### Convert Unicode to Zawgyi
+```php
+// https://domain/path?name=မြန်မာပြည်
+$request->uniToZg('name'); // return 'ျမန္မာျပည္'
+```
+
+#### Check Myanmar Phone Number
+```php
+// https://domain/path?phone=09250000000
+$request->isMyanmarPhoneNumber('phone'); // return true
+```
+
+#### Check MPT
+```php
+// https://domain/path?phone=09250000000
+$request->isMpt('phone'); // return true
+```
+
+#### Check Ooredoo
+```php
+// https://domain/path?phone=09970000000
+$request->isOoredoo('phone'); // return true
+```
+
+#### Check Telenor
+```php
+// https://domain/path?phone=09790000000
+$request->isTelenor('phone'); // return true
+```
+
+#### Check MEC
+```php
+// https://domain/path?phone=0930000000
+$request->isMec('phone'); // return true
+```
+
+#### Check Mytel
+```php
+// https://domain/path?phone=09690000000
+$request->isMytel('phone'); // return true
+```
+
+#### Get Telecom Name
+```php
+// https://domain/path?phone=09250000000
+$request->telecomName('phone'); // return 'mpt'
+
+// https://domain/path?phone=09970000000
+$request->telecomName('phone'); // return 'ooredoo'
+
+// https://domain/path?phone=09790000000
+$request->telecomName('phone'); // return 'telenor'
+
+// https://domain/path?phone=0930000000
+$request->telecomName('phone'); // return 'mec'
+
+// https://domain/path?phone=09690000000
+$request->telecomName('phone'); // return 'mytel'
 ```
 
 
@@ -227,74 +316,10 @@ collect($data)->zgToUni('name')->toArray();
 */
 ```
 
-
-## Request
-#### Check Unicode Font
-```php
-$request->isUnicodeFont('မြန်မာပြည်'); // return true
-```
-
-#### Check Zawgyi Font
-```php
-$request->isZawgyiFont('ျမန္မာျပည္'); // return true
-```
-
-#### Detect Myanmar Font
-```php
-$request->detectMyanmarFont('မြန်မာပြည်'); // return 'unicode'
-$request->detectMyanmarFont('ျမန္မာျပည္'); // return 'zawgyi'
-```
-
-#### Convert Zawgyi to Unicode
-```php
-$request->zgToUni('ျမန္မာျပည္'); // return 'မြန်မာပြည်'
-```
-
-#### Convert Unicode to Zawgyi
-```php
-$request->uniToZg('မြန်မာပြည်'); // return 'ျမန္မာျပည္'
-```
-
-#### Check Myanmar Phone Number
-```php
-$request->isMyanmarPhoneNumber('09250000000'); // return true
-```
-
-#### Check MPT
-```php
-$request->isMpt('09250000000'); // return true
-```
-
-#### Check Ooredoo
-```php
-$request->isOoredoo('09970000000'); // return true
-```
-
-#### Check Telenor
-```php
-$request->isTelenor('09790000000'); // return true
-```
-
-#### Check MEC
-```php
-$request->isMec('0930000000'); // return true
-```
-
-#### Check Mytel
-```php
-$request->isMytel('09690000000') // return true
-```
-
-#### Get Telecom Name
-```php
-$request->telecomName('09251234567'); // return 'mpt'
-$request->telecomName('09970000000'); // return 'ooredoo'
-$request->telecomName('09790000000'); // return 'telenor'
-$request->telecomName('0930000000');  // return 'mec'
-$request->telecomName('09690000000'); // return 'mytel'
-```
-
 ## Version History
+* 1.3
+    * improved collection macros
+    * changed request macros usage
 * 1.2
     * added collection macros
     * improved zawgyi detection
