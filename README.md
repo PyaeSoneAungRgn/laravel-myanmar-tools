@@ -38,6 +38,8 @@ A package for Myanmar Font, Phone and other Myanmar tools using Laravel Macro.
     * [whereMytel](#wheremytel)
     * [uniToZg](#unitozg)
     * [zgToUni](#zgtouni)
+* [Version History](#version-history)
+* [Credits](#credits)
 
 ## Installation
 ```bash
