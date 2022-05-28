@@ -4,7 +4,7 @@ namespace PyaeSoneAung\LaravelMyanmarTools\Macros\Collection;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Arr;
-use PyaeSoneAung\LaravelMyanmarTools\Packages\MyanmarPhoneNumberPackage;
+use Illuminate\Support\Str;
 
 class WhereMytel
 {
@@ -12,12 +12,10 @@ class WhereMytel
     {
         return function (?string $key = null) : Collection {
             return $this->filter(function($item) use ($key) {
-                if ($key == null && is_string($item)) {
-                    return MyanmarPhoneNumberPackage::isMytel($item);
-                } elseif ($key && Arr::has($item, $key)) {
-                    return MyanmarPhoneNumberPackage::isMytel(Arr::get($item, $key));
+                if ($key) {
+                    return Str::isMytel(Arr::get($item, $key));
                 }
-                return false;
+                return Str::isMytel($item);
             })->values();
         };
     }
