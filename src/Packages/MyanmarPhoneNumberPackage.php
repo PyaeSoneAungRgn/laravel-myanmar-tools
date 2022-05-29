@@ -55,6 +55,6 @@ class MyanmarPhoneNumberPackage
 
     protected static function isTelecom(string $telecom, ?string $str) : bool
     {
-        return !!static::getPackage()->is_telecom($telecom, $str);
+        return (bool) static::getPackage()->is_telecom($telecom, $str);
     }
 }
