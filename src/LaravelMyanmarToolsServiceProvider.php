@@ -6,9 +6,22 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class LaravelMyanmarToolsServiceProvider extends ServiceProvider
 {
+    public function boot()
+    {
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', $this->getPackageName());
+
+        $this->publishes([
+            __DIR__.'/../resources/lang' => lang_path('vendor/' . $this->getPackageName()),
+        ]);
+
+        Collection::make($this->validatorExtends())
+            ->each(fn ($class, $extend) => Validator::extend($extend, app($class)(), $this->getErrorMessage($extend)));
+    }
+
     public function register()
     {
         Collection::make($this->strMacros())
@@ -24,7 +37,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             ->each(fn ($class, $macro) => Collection::macro($macro, app($class)()));
     }
 
-    private function strMacros(): array
+    private function strMacros() : array
     {
         return [
             // Telecom
@@ -45,7 +58,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         ];
     }
 
-    private function requestMacros(): array
+    private function requestMacros() : array
     {
         return [
             // Telecom
@@ -66,7 +79,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         ];
     }
 
-    private function collectionMacros(): array
+    private function collectionMacros() : array
     {
         return [
             // Telecom
@@ -81,5 +94,27 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             'zgToUni' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Collection\ZgToUni::class,
             'uniToZg' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Collection\UniToZg::class,
         ];
+    }
+
+    private function validatorExtends() : array
+    {
+        return [
+            'myanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Extends\Validator\MyanmarPhoneNumber::class,
+            'mpt' => \PyaeSoneAung\LaravelMyanmarTools\Extends\Validator\Mpt::class,
+            'ooredoo' => \PyaeSoneAung\LaravelMyanmarTools\Extends\Validator\Ooredoo::class,
+            'telenor' => \PyaeSoneAung\LaravelMyanmarTools\Extends\Validator\Telenor::class,
+            'mec' => \PyaeSoneAung\LaravelMyanmarTools\Extends\Validator\Mec::class,
+            'mytel' => \PyaeSoneAung\LaravelMyanmarTools\Extends\Validator\Mytel::class,
+        ];
+    }
+
+    private function getPackageName()
+    {
+        return 'laravelMyanmarTools';
+    }
+
+    private function getErrorMessage($extend)
+    {
+        return trans($this->getPackageName() . '::validation.' . Str::snake($extend));
     }
 }

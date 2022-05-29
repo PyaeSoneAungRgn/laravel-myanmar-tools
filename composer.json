@@ -1,7 +1,18 @@
 {
     "name": "pyaesoneaung/laravel-myanmar-tools",
     "description": "A package for Myanmar tools which extend Laravel’s core.",
+    "keywords": [
+        "php",
+        "lravel",
+        "myanmar",
+        "myanmar-phone-number",
+        "myanmar-zawgyi-to-unicode-converter",
+        "myanmar-tools",
+        "myanmar-unicode",
+        "laravel-validation-rules"
+    ],
     "type": "library",
+    "homepage": "https://github.com/PyaeSoneAungRgn/laravel-myanmar-tools",
     "license": "MIT",
     "autoload": {
         "psr-4": {

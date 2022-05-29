@@ -48,7 +48,7 @@ class MyanmarPhoneNumberPackage
         return static::isTelecom(static::MYTEL, $str);
     }
 
-    protected static function getPackage(): MyanmarPhoneNumber
+    protected static function getPackage() : MyanmarPhoneNumber
     {
         return new MyanmarPhoneNumber();
     }

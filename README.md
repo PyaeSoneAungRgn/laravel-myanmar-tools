@@ -38,6 +38,14 @@ A package for Myanmar tools which extend Laravel’s core.
     * [whereMytel](#wheremytel)
     * [uniToZg](#unitozg)
     * [zgToUni](#zgtouni)
+* [Validation](#validation)
+    * [myanmarPhoneNumber](#myanmarphonenumber)
+    * [mpt](#mpt)
+    * [ooredoo](#ooredoo)
+    * [telenor](#telenor)
+    * [mec](#mec)
+    * [mytel](#mytel)
+    * [Customizing The Error Messages](#customizing-the-error-messages)
 * [Version History](#version-history)
 * [Credits](#credits)
 
@@ -442,7 +450,68 @@ collect($data)->zgToUni('user.name')->toArray();
 */
 ```
 
+## Validation
+#### myanmarPhoneNumber
+```php
+$request->validate([
+    'phone' => ['required', 'myanmarPhoneNumber'],
+]);
+```
+
+#### mpt
+```php
+$request->validate([
+    'phone' => ['required', 'mpt'],
+]);
+```
+
+#### ooredoo
+```php
+$request->validate([
+    'phone' => ['required', 'ooredoo'],
+]);
+```
+
+#### telenor
+```php
+$request->validate([
+    'phone' => ['required', 'telenor'],
+]);
+```
+
+#### mec
+```php
+$request->validate([
+    'phone' => ['required', 'mec'],
+]);
+```
+
+#### mytel
+```php
+$request->validate([
+    'phone' => ['required', 'mytel'],
+]);
+```
+
+#### Customizing The Error Messages
+```bash
+php artisan vendor:publish --provider="PyaeSoneAung\LaravelMyanmarTools\LaravelMyanmarToolsServiceProvider"
+```
+You can edit the error messages at  `/resources/lang/vendor/laravelMyanmarTools/validation.php`
+```php
+return [
+    'myanmar_phone_number' => 'The :attribute must be valid myanmar phone number.',
+    'mpt' => 'The :attribute must be valid MPT number.',
+    'ooredoo' => 'The :attribute must be valid Ooredoo number.',
+    'telenor' => 'The :attribute must be valid Telenor number.',
+    'mec' => 'The :attribute must be valid MEC number.',
+    'mytel' => 'The :attribute must be valid Mytel number.',
+];
+```
+
 ## Version History
+* 1.4
+    * extended phone number validation
 * 1.3
     * improved collection macros
     * changed request macros usage
