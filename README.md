@@ -1,34 +1,34 @@
 # Laravel Myanmar Tools
-A package for Myanmar Font, Phone and other Myanmar tools using Laravel Macro.
+A package for Myanmar tools which extend Laravel’s core.
 
 ## Table of Contents
 * [Installation](#installation)
 * [Str](#str)
-    * [Check Unicode Font](#check-unicode-font)
-    * [Check Zawgyi Font](#check-zawgyi-font)
-    * [Detect Myanmar Font](#detect-myanmar-font)
-    * [Convert Zawgyi to Unicode](#convert-zawgyi-to-unicode)
-    * [Convert Unicode to Zawgyi](#convert-unicode-to-zawgyi)
-    * [Check Myanmar Phone Number](#check-myanmar-phone-number)
-    * [Check MPT](#check-mpt)
-    * [Check Ooredoo](#check-ooredoo)
-    * [Check Telenor](#check-telenor)
-    * [Check MEC](#check-mec)
-    * [Check Mytel](#check-mytel)
-    * [Get Telecom Name](#get-telecom-name)
+    * [isUnicodeFont](#isunicodefont)
+    * [isZawgyiFont](#iszawgyifont)
+    * [detectMyanmarFont](#detectmyanmarfont)
+    * [zgToUni](#zgtouni)
+    * [uniToZg](#unitozg)
+    * [isMyanmarPhoneNumber](#ismyanmarphonenumber)
+    * [isMpt](#ismpt)
+    * [isOoredoo](#isooredoo)
+    * [isTelenor](#istelenor)
+    * [isMec](#ismec)
+    * [isMytel](#ismytel)
+    * [telecomName](#telecomname)
 * [Request](#request)
-    * [Check Unicode Font](#check-unicode-font-1)
-    * [Check Zawgyi Font](#check-zawgyi-font-1)
-    * [Detect Myanmar Font](#detect-myanmar-font-1)
-    * [Convert Zawgyi to Unicode](#convert-zawgyi-to-unicode-1)
-    * [Convert Unicode to Zawgyi](#convert-unicode-to-zawgyi-1)
-    * [Check Myanmar Phone Number](#check-myanmar-phone-number-1)
-    * [Check MPT](#check-mpt-1)
-    * [Check Ooredoo](#check-ooredoo-1)
-    * [Check Telenor](#check-telenor-1)
-    * [Check MEC](#check-mec-1)
-    * [Check Mytel](#check-mytel-1)
-    * [Get Telecom Name](#get-telecom-name-1)
+    * [isUnicodeFont](#isunicodefont-1)
+    * [isZawgyiFont](#iszawgyifont-1)
+    * [detectMyanmarFont](#detectmyanmarfont-1)
+    * [zgToUni](#zgtouni-1)
+    * [uniToZg](#unitozg-1)
+    * [isMyanmarPhoneNumber](#ismyanmarphonenumber-1)
+    * [isMpt](#ismpt-1)
+    * [isOoredoo](#isooredoo-1)
+    * [isTelenor](#istelenor-1)
+    * [isMec](#ismec-1)
+    * [isMytel](#ismytel-1)
+    * [telecomName](#telecomname-1)
 * [Collection](#collection)
     * [whereMyanmarPhoneNumber](#wheremyanmarphonenumber)
     * [whereMpt](#wherempt)
@@ -46,74 +46,74 @@ A package for Myanmar Font, Phone and other Myanmar tools using Laravel Macro.
 composer require pyaesoneaung/laravel-myanmar-tools
 ```
 ## Str
-#### Check Unicode Font
+#### isUnicodeFont()
 ```php
 use Illuminate\Support\Str;
 Str::isUnicodeFont('မြန်မာပြည်'); // return true
 ```
 
-#### Check Zawgyi Font
+#### isZawgyiFont()
 ```php
 use Illuminate\Support\Str;
 Str::isZawgyiFont('ျမန္မာျပည္'); // return true
 ```
 
-#### Detect Myanmar Font
+#### detectMyanmarFont()
 ```php
 use Illuminate\Support\Str;
 Str::detectMyanmarFont('မြန်မာပြည်'); // return 'unicode'
 Str::detectMyanmarFont('ျမန္မာျပည္'); // return 'zawgyi'
 ```
 
-#### Convert Zawgyi to Unicode
+#### zgToUni()
 ```php
 use Illuminate\Support\Str;
 Str::zgToUni('ျမန္မာျပည္'); // return 'မြန်မာပြည်'
 ```
 
-#### Convert Unicode to Zawgyi
+#### uniToZg()
 ```php
 use Illuminate\Support\Str;
 Str::uniToZg('မြန်မာပြည်'); // return 'ျမန္မာျပည္'
 ```
 
-#### Check Myanmar Phone Number
+#### isMyanmarPhoneNumber()
 ```php
 use Illuminate\Support\Str;
 Str::isMyanmarPhoneNumber('09250000000'); // return true
 ```
 
-#### Check MPT
+#### isMpt()
 ```php
 use Illuminate\Support\Str;
 Str::isMpt('09250000000'); // return true
 ```
 
-#### Check Ooredoo
+#### isOoredoo()
 ```php
 use Illuminate\Support\Str;
 Str::isOoredoo('09970000000'); // return true
 ```
 
-#### Check Telenor
+#### isTelenor()
 ```php
 use Illuminate\Support\Str;
 Str::isTelenor('09790000000'); // return true
 ```
 
-#### Check MEC
+#### isMec()
 ```php
 use Illuminate\Support\Str;
 Str::isMec('0930000000'); // return true
 ```
 
-#### Check Mytel
+#### isMytel()
 ```php
 use Illuminate\Support\Str;
 Str::isMytel('09690000000'); // return true
 ```
 
-#### Get Telecom Name
+#### telecomName()
 ```php
 use Illuminate\Support\Str;
 Str::telecomName('09250000000'); // return 'mpt'
@@ -125,19 +125,19 @@ Str::telecomName('09690000000'); // return 'mytel'
 
 
 ## Request
-#### Check Unicode Font
+#### isUnicodeFont()
 ```php
 // https://domain/path?name=မြန်မာပြည်
 $request->isUnicodeFont('name'); // return true
 ```
 
-#### Check Zawgyi Font
+#### isZawgyiFont()
 ```php
 // https://domain/path?name=ျမန္မာျပည္
 $request->isZawgyiFont('name'); // return true
 ```
 
-#### Detect Myanmar Font
+#### detectMyanmarFont()
 ```php
 // https://domain/path?name=မြန်မာပြည်
 $request->detectMyanmarFont('name'); // return 'unicode'
@@ -146,55 +146,55 @@ $request->detectMyanmarFont('name'); // return 'unicode'
 $request->detectMyanmarFont('name'); // return 'zawgyi'
 ```
 
-#### Convert Zawgyi to Unicode
+#### zgToUni()
 ```php
 // https://domain/path?name=ျမန္မာျပည္
 $request->zgToUni('name'); // return 'မြန်မာပြည်'
 ```
 
-#### Convert Unicode to Zawgyi
+#### uniToZg()
 ```php
 // https://domain/path?name=မြန်မာပြည်
 $request->uniToZg('name'); // return 'ျမန္မာျပည္'
 ```
 
-#### Check Myanmar Phone Number
+#### isMyanmarPhoneNumber()
 ```php
 // https://domain/path?phone=09250000000
 $request->isMyanmarPhoneNumber('phone'); // return true
 ```
 
-#### Check MPT
+#### isMpt()
 ```php
 // https://domain/path?phone=09250000000
 $request->isMpt('phone'); // return true
 ```
 
-#### Check Ooredoo
+#### isOoredoo()
 ```php
 // https://domain/path?phone=09970000000
 $request->isOoredoo('phone'); // return true
 ```
 
-#### Check Telenor
+#### isTelenor()
 ```php
 // https://domain/path?phone=09790000000
 $request->isTelenor('phone'); // return true
 ```
 
-#### Check MEC
+#### isMec()
 ```php
 // https://domain/path?phone=0930000000
 $request->isMec('phone'); // return true
 ```
 
-#### Check Mytel
+#### isMytel()
 ```php
 // https://domain/path?phone=09690000000
 $request->isMytel('phone'); // return true
 ```
 
-#### Get Telecom Name
+#### telecomName()
 ```php
 // https://domain/path?phone=09250000000
 $request->telecomName('phone'); // return 'mpt'
@@ -230,6 +230,17 @@ collect($data)->whereMyanmarPhoneNumber('phone')->toArray();
         ['phone' => '09250000000']
     ]
 */
+
+$data = [
+    ['user' => ['phone' => '09250000000']],
+    ['user' => ['phone' => 'abc']],
+];
+collect($data)->whereMyanmarPhoneNumber('user.phone')->toArray();
+/*
+    [
+        ['user' => ['phone' => '09250000000']],
+    ]
+*/
 ```
 
 #### whereMpt()
@@ -246,6 +257,17 @@ collect($data)->whereMpt('phone')->toArray();
 /*
     [
         ['phone' => '09250000000']
+    ]
+*/
+
+$data = [
+    ['user' => ['phone' => '09250000000']],
+    ['user' => ['phone' => '09970000000']],
+];
+collect($data)->whereMpt('user.phone')->toArray();
+/*
+    [
+        ['user' => ['phone' => '09250000000']],
     ]
 */
 ```
@@ -266,6 +288,17 @@ collect($data)->whereOoredoo('phone')->toArray();
         ['phone' => '09970000000']
     ]
 */
+
+$data = [
+    ['user' => ['phone' => '09250000000']],
+    ['user' => ['phone' => '09970000000']],
+];
+collect($data)->whereOoredoo('user.phone')->toArray();
+/*
+    [
+        ['user' => ['phone' => '09970000000']],
+    ]
+*/
 ```
 
 #### whereTelenor()
@@ -282,6 +315,17 @@ collect($data)->whereTelenor('phone')->toArray();
 /*
     [
         ['phone' => '09790000000']
+    ]
+*/
+
+$data = [
+    ['user' => ['phone' => '09250000000']],
+    ['user' => ['phone' => '09790000000']],
+];
+collect($data)->whereTelenor('user.phone')->toArray();
+/*
+    [
+        ['user' => ['phone' => '09790000000']],
     ]
 */
 ```
@@ -302,6 +346,17 @@ collect($data)->whereMec('phone')->toArray();
         ['phone' => '0930000000']
     ]
 */
+
+$data = [
+    ['user' => ['phone' => '09250000000']],
+    ['user' => ['phone' => '0930000000']],
+];
+collect($data)->whereMec('user.phone')->toArray();
+/*
+    [
+        ['user' => ['phone' => '0930000000']],
+    ]
+*/
 ```
 
 #### whereMytel()
@@ -318,6 +373,17 @@ collect($data)->whereMytel('phone')->toArray();
 /*
     [
         ['phone' => '09690000000']
+    ]
+*/
+
+$data = [
+    ['user' => ['phone' => '09250000000']],
+    ['user' => ['phone' => '09690000000']],
+];
+collect($data)->whereMytel('user.phone')->toArray();
+/*
+    [
+        ['user' => ['phone' => '09690000000']],
     ]
 */
 ```
@@ -337,6 +403,16 @@ collect($data)->uniToZg('name')->toArray();
         ['name' => 'ျမန္မာျပည္']
     ]
 */
+
+$data = [
+    ['user' => ['name' => 'မြန်မာပြည်']]
+];
+collect($data)->uniToZg('user.name')->toArray();
+/*
+    [
+        ['user' => ['name' => 'ျမန္မာျပည္']]
+    ]
+*/
 ```
 
 #### zgToUni()
@@ -352,6 +428,16 @@ collect($data)->zgToUni('name')->toArray();
 /*
     [
         ['name' => 'မြန်မာပြည်']
+    ]
+*/
+
+$data = [
+    ['user' => ['name' => 'ျမန္မာျပည္']]
+];
+collect($data)->zgToUni('user.name')->toArray();
+/*
+    [
+        ['user' => ['name' => 'မြန်မာပြည်']]
     ]
 */
 ```

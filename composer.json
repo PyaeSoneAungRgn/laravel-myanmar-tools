@@ -1,6 +1,6 @@
 {
     "name": "pyaesoneaung/laravel-myanmar-tools",
-    "description": "A package for Myanmar Font, Phone and other Myanmar tools using Laravel Macro",
+    "description": "A package for Myanmar tools which extend Laravel’s core.",
     "type": "library",
     "license": "MIT",
     "autoload": {
