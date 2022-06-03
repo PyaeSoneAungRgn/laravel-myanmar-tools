@@ -3,6 +3,7 @@ A package for Myanmar tools which extend Laravel’s core.
 
 ## Table of Contents
 * [Installation](#installation)
+* [Version Compatibilities](#version-compatibilities)
 * [Str](#str)
     * [isUnicodeFont](#isunicodefont)
     * [isZawgyiFont](#iszawgyifont)
@@ -53,6 +54,12 @@ A package for Myanmar tools which extend Laravel’s core.
 ```bash
 composer require pyaesoneaung/laravel-myanmar-tools
 ```
+## Version Compatibilities
+| Laravel Myanmar Tools | Laravel 9.*      | Laravel 8.*      | Laravel 7.*      | Laravel 6.*      | 
+|-----------------------|:-----------:     |:-----------:     |:-----------:     |:-----------:     |
+| 2.x                   |:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|
+| 1.x                   |:white_check_mark:|:x:               |:x:               |:x:               |
+
 ## Str
 #### isUnicodeFont()
 ```php
@@ -511,7 +518,7 @@ return [
 
 ## Version History
 * 2.0.0
-    * support Laravel 6.* to 9.*
+    * support laravel 9.\* | 8.\* | 7.\* | 6.\* :tada:
 * 1.4.1
     * bug fixed collection macros (uniToZg and zgToUni)
 * 1.4.0
