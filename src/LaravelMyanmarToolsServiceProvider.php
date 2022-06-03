@@ -15,7 +15,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', $this->getPackageName());
 
         $this->publishes([
-            __DIR__ . '/../resources/lang' => lang_path('vendor/' . $this->getPackageName()),
+            __DIR__ . '/../resources/lang' =>  __DIR__ . '/lang/vendor/' . $this->getPackageName(),
         ]);
 
         Collection::make($this->validatorExtends())
