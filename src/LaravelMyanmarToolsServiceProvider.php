@@ -12,32 +12,46 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', $this->getPackageName());
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', $this->getPackageName());
 
         $this->publishes([
-            __DIR__.'/../resources/lang' => lang_path('vendor/' . $this->getPackageName()),
+            __DIR__ . '/../resources/lang' => lang_path('vendor/' . $this->getPackageName()),
         ]);
 
         Collection::make($this->validatorExtends())
-            ->each(fn ($class, $extend) => Validator::extend($extend, app($class)(), $this->getErrorMessage($extend)));
+            ->each(function ($class, $extend) {
+                Validator::extend($extend, app($class)(), $this->getErrorMessage($extend));
+            });
     }
 
     public function register()
     {
         Collection::make($this->strMacros())
-            ->reject(fn ($class, $macro) => Str::hasMacro($macro))
-            ->each(fn ($class, $macro) => Str::macro($macro, app($class)()));
+            ->reject(function ($class, $macro) {
+                return Str::hasMacro($macro);
+            })
+            ->each(function ($class, $macro) {
+                Str::macro($macro, app($class)());
+            });
 
         Collection::make($this->requestMacros())
-            ->reject(fn ($class, $macro) => Request::hasMacro($macro))
-            ->each(fn ($class, $macro) => Request::macro($macro, app($class)()));
+            ->reject(function ($class, $macro) {
+                return Request::hasMacro($macro);
+            })
+            ->each(function ($class, $macro) {
+                Request::macro($macro, app($class)());
+            });
 
         Collection::make($this->collectionMacros())
-            ->reject(fn ($class, $macro) => Collection::hasMacro($macro))
-            ->each(fn ($class, $macro) => Collection::macro($macro, app($class)()));
+            ->reject(function ($class, $macro) {
+                return Collection::hasMacro($macro);
+            })
+            ->each(function ($class, $macro) {
+                Collection::macro($macro, app($class)());
+            });
     }
 
-    private function strMacros() : array
+    private function strMacros(): array
     {
         return [
             // Telecom
@@ -58,7 +72,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         ];
     }
 
-    private function requestMacros() : array
+    private function requestMacros(): array
     {
         return [
             // Telecom
@@ -79,7 +93,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         ];
     }
 
-    private function collectionMacros() : array
+    private function collectionMacros(): array
     {
         return [
             // Telecom
@@ -96,7 +110,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         ];
     }
 
-    private function validatorExtends() : array
+    private function validatorExtends(): array
     {
         return [
             'myanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Extends\Validator\MyanmarPhoneNumber::class,
