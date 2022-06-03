@@ -1,4 +1,8 @@
 # Laravel Myanmar Tools
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/pyaesoneaung/laravel-myanmar-tools.svg?style=flat-square)](https://packagist.org/packages/pyaesoneaung/laravel-myanmar-tools)
+[![Run tests](https://github.com/PyaeSoneAungRgn/laravel-myanmar-tools/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/PyaeSoneAungRgn/laravel-myanmar-tools/actions/workflows/run-tests.yml)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://packagist.org/packages/pyaesoneaung/laravel-myanmar-tools)
+
 A package for Myanmar tools which extend Laravel’s core.
 
 ## Table of Contents
