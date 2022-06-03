@@ -13,7 +13,8 @@ class UniToZg
         return function (?string $key = null) : Collection {
             return $this->map(function($item) use ($key) {
                 if ($key) {
-                    return Arr::set($item, $key, Str::uniToZg($item[$key]));
+                    Arr::set($item, $key, Str::uniToZg(Arr::get($item, $key)));
+                    return $item;
                 }
                 return Str::uniToZg($item);
             });
