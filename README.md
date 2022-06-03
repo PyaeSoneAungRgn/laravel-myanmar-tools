@@ -510,6 +510,8 @@ return [
 ```
 
 ## Version History
+* 2.0.0
+    * support Laravel 6.* to 9.*
 * 1.4.1
     * bug fixed collection macros (uniToZg and zgToUni)
 * 1.4.0
