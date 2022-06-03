@@ -33,7 +33,8 @@
     "minimum-stability": "dev",
     "prefer-stable" : true,
     "require": {
-        "php": ">=7.1.0",
+        "php": "^7.2.5|^8.0",
+        "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
         "cyberwings/myanmar-phone-number-php": "^0.0.3",
         "googlei18n/myanmar-tools": "^1.2",
         "rabbit-converter/rabbit-php": "dev-master"
@@ -44,5 +45,9 @@
                 "PyaeSoneAung\\LaravelMyanmarTools\\LaravelMyanmarToolsServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^7.5"
     }
 }
