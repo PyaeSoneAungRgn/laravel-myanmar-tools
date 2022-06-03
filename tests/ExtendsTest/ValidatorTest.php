@@ -1,6 +1,6 @@
 <?php
 
-namespace PyaeSoneAung\LaravelMyanmarTools\Tests\Extends;
+namespace PyaeSoneAung\LaravelMyanmarTools\Tests\ExtendsTest;
 
 use PyaeSoneAung\LaravelMyanmarTools\Tests\TestCase;
 use Illuminate\Support\Facades\Validator;
