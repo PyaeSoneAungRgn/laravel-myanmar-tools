@@ -168,7 +168,8 @@ Str::normalizeMyanmarPhoneNumber('09250000000'); // return '09250000000'
 Str::normalizeMyanmarPhoneNumber('(၀၉)၂၅၀၀၀၀၀၀၀'); // return '09250000000'
 Str::normalizeMyanmarPhoneNumber('၀၉-၂၅၀၀၀၀၀၀၀'); // return '09250000000'
 Str::normalizeMyanmarPhoneNumber('+၉၅၉၂၅၀၀၀၀၀၀၀'); // return '09250000000'
-Str::normalizeMyanmarPhoneNumber('09 ၂၅ဝရဝရဝရဝ'); // return '09250707070' (ဝလုံး နဲ့ ရကောက် ပါလျှင် 0 နဲ့ 7 လို့ပြောင်းလဲပါသည်)
+Str::normalizeMyanmarPhoneNumber('09 ၂၅ဝရဝရဝရဝ');
+// return '09250707070' (ဝလုံး နဲ့ ရကောက် ပါလျှင် 0 နဲ့ 7 လို့ပြောင်းလဲပါသည်)
 ```
 
 ## Request
