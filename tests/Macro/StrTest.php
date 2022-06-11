@@ -105,4 +105,13 @@ class StrTest extends TestCase
         $this->assertEquals(static::MEC, Str::telecomName(static::MEC_PHONE_NO));
         $this->assertEquals(static::MYTEL, Str::telecomName(static::MYTEL_PHONE_NO));
     }
+
+    /** @test */
+    public function it_can_normalize_myanmar_phone_number()
+    {
+        $this->assertEquals('09250000000', Str::normalizeMyanmarPhoneNumber('(၀၉)၂၅၀၀၀၀၀၀၀'));
+        $this->assertEquals('09250000000', Str::normalizeMyanmarPhoneNumber('၀၉-၂၅၀၀၀၀၀၀၀'));
+        $this->assertEquals('09250000000', Str::normalizeMyanmarPhoneNumber('+၉၅၉၂၅၀၀၀၀၀၀၀'));
+        $this->assertEquals('09250707070', Str::normalizeMyanmarPhoneNumber('09 ၂၅ဝရဝရဝရဝ'));
+    }
 }

@@ -8,7 +8,7 @@ class UniToZg
 {
     public function __invoke()
     {
-        return function (?string $value) : string {
+        return function (?string $value): string {
             return RabbitPackage::uniToZg($value);
         };
     }

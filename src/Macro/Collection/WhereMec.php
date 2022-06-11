@@ -10,8 +10,8 @@ class WhereMec
 {
     public function __invoke()
     {
-        return function (?string $key = null) : Collection {
-            return $this->filter(function($item) use ($key) {
+        return function (?string $key = null): Collection {
+            return $this->filter(function ($item) use ($key) {
                 if ($key) {
                     return Str::isMec(Arr::get($item, $key));
                 }

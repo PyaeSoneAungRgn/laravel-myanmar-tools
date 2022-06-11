@@ -8,7 +8,7 @@ class IsUnicodeFont
 {
     public function __invoke()
     {
-        return function (string $key) : bool {
+        return function (string $key): bool {
             return ZawgyiDetectorPackage::isUnicodeFont($this->input($key));
         };
     }

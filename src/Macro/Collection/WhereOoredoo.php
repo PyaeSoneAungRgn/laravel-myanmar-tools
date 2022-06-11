@@ -10,8 +10,8 @@ class WhereOoredoo
 {
     public function __invoke()
     {
-        return function (?string $key = null) : Collection {
-            return $this->filter(function($item) use ($key) {
+        return function (?string $key = null): Collection {
+            return $this->filter(function ($item) use ($key) {
                 if ($key) {
                     return Str::isOoredoo(Arr::get($item, $key));
                 }

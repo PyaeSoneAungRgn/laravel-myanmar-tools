@@ -8,7 +8,7 @@ class TelecomName
 {
     public function __invoke()
     {
-        return function (string $key) : string {
+        return function (string $key): string {
             return MyanmarPhoneNumberPackage::telecomName($this->input($key));
         };
     }
