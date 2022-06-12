@@ -3,7 +3,6 @@
 namespace PyaeSoneAung\LaravelMyanmarTools\Macro\Str;
 
 use PyaeSoneAung\LaravelMyanmarTools\Packages\LaravelMyanmarToolsPackage;
-use PyaeSoneAung\LaravelMyanmarTools\Packages\ZawgyiDetectorPackage;
 
 class NormalizeMyanmarPhoneNumber
 {

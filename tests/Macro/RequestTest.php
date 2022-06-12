@@ -155,4 +155,19 @@ class RequestTest extends TestCase
         $this->assertEquals(static::MEC, $request->telecomName('mec'));
         $this->assertEquals(static::MYTEL, $request->telecomName('mytel'));
     }
+
+    /** @test */
+    public function it_can_normalize_myanmar_phone_number()
+    {
+        $request = $this->createRequest([
+            'phone_1' => '(၀၉)၂၅၀၀၀၀၀၀၀',
+            'phone_2' => '၀၉-၂၅၀၀၀၀၀၀၀',
+            'phone_3' => '+၉၅၉၂၅၀၀၀၀၀၀၀',
+            'phone_4' => '09 ၂၅ဝရဝရဝရဝ',
+        ]);
+        $this->assertEquals('09250000000', $request->normalizeMyanmarPhoneNumber('phone_1'));
+        $this->assertEquals('09250000000', $request->normalizeMyanmarPhoneNumber('phone_2'));
+        $this->assertEquals('09250000000', $request->normalizeMyanmarPhoneNumber('phone_3'));
+        $this->assertEquals('09250707070', $request->normalizeMyanmarPhoneNumber('phone_4'));
+    }
 }

@@ -35,6 +35,7 @@ A package for Myanmar tools which extend Laravel’s core.
   - [isMec](#ismec-1)
   - [isMytel](#ismytel-1)
   - [telecomName](#telecomname-1)
+  - [normalizeMyanmarPhoneNumber](#normalizemyanmarphonenumber-1)
 - [Collection](#collection)
   - [whereMyanmarPhoneNumber](#wheremyanmarphonenumber)
   - [whereMpt](#wherempt)
@@ -270,6 +271,26 @@ $request->telecomName('phone'); // return 'mec'
 
 // https://domain/path?phone=09690000000
 $request->telecomName('phone'); // return 'mytel'
+```
+
+#### normalizeMyanmarPhoneNumber()
+
+```php
+// https://domain/path?phone=09250000000
+$request->normalizeMyanmarPhoneNumber('phone'); // return '09250000000'
+
+// https://domain/path?phone=(၀၉)၂၅၀၀၀၀၀၀၀
+$request->normalizeMyanmarPhoneNumber('phone'); // return '09250000000'
+
+// https://domain/path?phone=၀၉-၂၅၀၀၀၀၀၀၀
+$request->normalizeMyanmarPhoneNumber('phone'); // return '09250000000'
+
+// https://domain/path?phone=+၉၅၉၂၅၀၀၀၀၀၀၀
+$request->normalizeMyanmarPhoneNumber('phone'); // return '09250000000'
+
+// https://domain/path?phone=09 ၂၅ဝရဝရဝရဝ
+$request->normalizeMyanmarPhoneNumber('phone');
+// return '09250707070' (ဝလုံး နဲ့ ရကောက် ပါလျှင် 0 နဲ့ 7 လို့ပြောင်းလဲပါသည်)
 ```
 
 ## Collection
@@ -581,8 +602,10 @@ return [
 
 ## Version History
 
+- 2.2.0
+  - added normalizeMyanmarPhoneNumber request macro
 - 2.1.0
-  - added normalizeMyanmarPhoneNumber
+  - added normalizeMyanmarPhoneNumber str macro
 - 2.0.0
   - support laravel 9.\* | 8.\* | 7.\* | 6.\* :tada:
 - 1.4.1

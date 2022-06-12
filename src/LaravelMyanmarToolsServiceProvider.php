@@ -84,6 +84,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             'isTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Request\IsTelenor::class,
             'isMec' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Request\IsMec::class,
             'isMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Request\IsMytel::class,
+            'normalizeMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Request\NormalizeMyanmarPhoneNumber::class,
 
             // Font
             'isZawgyiFont' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Request\IsZawgyiFont::class,
