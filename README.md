@@ -587,7 +587,7 @@ $request->validate([
 php artisan vendor:publish --provider="PyaeSoneAung\LaravelMyanmarTools\LaravelMyanmarToolsServiceProvider"
 ```
 
-You can edit the error messages at `/resources/lang/vendor/laravelMyanmarTools/validation.php`
+You can edit the error messages at `/lang/vendor/laravelMyanmarTools/en/validation.php`
 
 ```php
 return [
