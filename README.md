@@ -602,6 +602,8 @@ return [
 
 ## Version History
 
+- 2.2.1
+  - bug fix publishing translations
 - 2.2.0
   - added normalizeMyanmarPhoneNumber request macro
 - 2.1.0
