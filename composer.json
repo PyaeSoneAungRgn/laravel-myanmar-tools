@@ -2,8 +2,9 @@
     "name": "pyaesoneaung/laravel-myanmar-tools",
     "description": "A package for Myanmar tools which extend Laravel’s core.",
     "keywords": [
+        "laravel-myanmar-tools",
         "php",
-        "lravel",
+        "laravel",
         "myanmar",
         "myanmar-phone-number",
         "myanmar-zawgyi-to-unicode-converter",
@@ -14,6 +15,24 @@
     "type": "library",
     "homepage": "https://github.com/PyaeSoneAungRgn/laravel-myanmar-tools",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Pyae Sone Aung",
+            "email": "pyaesoneaungrgn@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5|^8.0",
+        "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
+        "cyberwings/myanmar-phone-number-php": "^0.0.3",
+        "googlei18n/myanmar-tools": "^1.2",
+        "rabbit-converter/rabbit-php": "dev-master"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0|^5.0|^5.0|^7.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "PyaeSoneAung\\LaravelMyanmarTools\\": "src/"
@@ -24,21 +43,6 @@
             "PyaeSoneAung\\LaravelMyanmarTools\\Tests\\": "tests"
         }
     },
-    "authors": [
-        {
-            "name": "Pyae Sone Aung",
-            "email": "pyaesoneaungrgn@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable" : true,
-    "require": {
-        "php": "^7.2.5|^8.0",
-        "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
-        "cyberwings/myanmar-phone-number-php": "^0.0.3",
-        "googlei18n/myanmar-tools": "^1.2",
-        "rabbit-converter/rabbit-php": "dev-master"
-    },
     "extra": {
         "laravel": {
             "providers": [
@@ -46,7 +50,7 @@
             ]
         }
     },
-    "require-dev": {
-        "orchestra/testbench": "^4.0|^5.0|^5.0|^7.0"
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
 }

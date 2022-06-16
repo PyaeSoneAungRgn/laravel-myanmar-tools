@@ -3,5 +3,11 @@
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+	"portsAttributes": {
+		"3000": {
+			"label": "Laravel Myanmar Tools | Documentation",
+			"onAutoForward": "notify"
+		}
+	}
 }

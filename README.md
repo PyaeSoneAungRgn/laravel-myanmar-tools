@@ -8,6 +8,7 @@ A package for Myanmar tools which extend Laravel’s core.
 
 - [Installation](#installation)
 - [Version Compatibilities](#version-compatibilities)
+- [Documentation](#documentation)
 - [Str](#str)
   - [isUnicodeFont](#isunicodefont)
   - [isZawgyiFont](#iszawgyifont)
@@ -68,6 +69,10 @@ composer require pyaesoneaung/laravel-myanmar-tools
 | --------------------- | :----------------: | :----------------: | :----------------: | :----------------: |
 | 2.x                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | 1.x                   | :white_check_mark: |        :x:         |        :x:         |        :x:         |
+
+## Documentation
+
+Read the full documentation at [laravel-myanmar-tools.com](https://laravel-myanmar-tools.com)
 
 ## Str
 
@@ -168,7 +173,7 @@ Str::normalizeMyanmarPhoneNumber('09250000000'); // return '09250000000'
 Str::normalizeMyanmarPhoneNumber('(၀၉)၂၅၀၀၀၀၀၀၀'); // return '09250000000'
 Str::normalizeMyanmarPhoneNumber('၀၉-၂၅၀၀၀၀၀၀၀'); // return '09250000000'
 Str::normalizeMyanmarPhoneNumber('+၉၅၉၂၅၀၀၀၀၀၀၀'); // return '09250000000'
-Str::normalizeMyanmarPhoneNumber('09 ၂၅ဝရဝရဝရဝ');
+Str::normalizeMyanmarPhoneNumber('09-၂၅ဝရဝရဝရဝ');
 // return '09250707070' (ဝလုံး နဲ့ ရကောက် ပါလျှင် 0 နဲ့ 7 လို့ပြောင်းလဲပါသည်)
 ```
 
@@ -288,7 +293,7 @@ $request->normalizeMyanmarPhoneNumber('phone'); // return '09250000000'
 // https://domain/path?phone=+၉၅၉၂၅၀၀၀၀၀၀၀
 $request->normalizeMyanmarPhoneNumber('phone'); // return '09250000000'
 
-// https://domain/path?phone=09 ၂၅ဝရဝရဝရဝ
+// https://domain/path?phone=09-၂၅ဝရဝရဝရဝ
 $request->normalizeMyanmarPhoneNumber('phone');
 // return '09250707070' (ဝလုံး နဲ့ ရကောက် ပါလျှင် 0 နဲ့ 7 လို့ပြောင်းလဲပါသည်)
 ```
@@ -603,7 +608,7 @@ return [
 ## Version History
 
 - 2.2.1
-  - bug fix publishing translations
+  - bug fixed publishing translations
 - 2.2.0
   - added normalizeMyanmarPhoneNumber request macro
 - 2.1.0

@@ -1,0 +1,24 @@
+# Version History
+
+- 2.2.1
+  - bug fixed publishing translations
+- 2.2.0
+  - added normalizeMyanmarPhoneNumber request macro
+- 2.1.0
+  - added normalizeMyanmarPhoneNumber str macro
+- 2.0.0
+  - support laravel 9.\* | 8.\* | 7.\* | 6.\* :tada:
+- 1.4.1
+  - bug fixed collection macros (uniToZg and zgToUni)
+- 1.4.0
+  - extended phone number validation
+- 1.3.0
+  - improved collection macros
+  - changed request macros usage
+- 1.2.0
+  - added collection macros
+  - improved zawgyi detection
+- 1.1.0
+  - added request macros
+- 1.0.0
+  - initial release

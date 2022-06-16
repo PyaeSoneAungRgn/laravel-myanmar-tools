@@ -12,5 +12,9 @@ RUN apt update -y \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 # install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - \
-    && sudo apt install nodejs -y
+RUN curl -sL https://deb.nodesource.com/setup_16.x | -E bash - \
+    && apt install nodejs -y
+
+# install other packages
+RUN npm i -g docsify-cli -\
+    && npm i -g vercel
