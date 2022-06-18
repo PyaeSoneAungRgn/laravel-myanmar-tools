@@ -1,11 +1,11 @@
 <?php
 
-namespace PyaeSoneAung\LaravelMyanmarTools\Packages;
+namespace PyaeSoneAung\LaravelMyanmarTools\Support;
 
 use Illuminate\Support\Str;
-use CyberWings\MyanmarPhoneNumber;
+use CyberWings\MyanmarPhoneNumber as MyanmarPhoneNumberPackage;
 
-class MyanmarPhoneNumberPackage
+class MyanmarPhoneNumber
 {
     const MPT = 'mpt';
     const TELENOR = 'telenor';
@@ -48,9 +48,9 @@ class MyanmarPhoneNumberPackage
         return static::isTelecom(static::MYTEL, $str);
     }
 
-    protected static function getPackage(): MyanmarPhoneNumber
+    protected static function getPackage(): MyanmarPhoneNumberPackage
     {
-        return new MyanmarPhoneNumber();
+        return new MyanmarPhoneNumberPackage();
     }
 
     protected static function isTelecom(string $telecom, ?string $str): bool

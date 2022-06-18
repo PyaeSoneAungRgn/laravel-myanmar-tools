@@ -2,14 +2,14 @@
 
 namespace PyaeSoneAung\LaravelMyanmarTools\Macro\Request;
 
-use PyaeSoneAung\LaravelMyanmarTools\Packages\LaravelMyanmarToolsPackage;
+use PyaeSoneAung\LaravelMyanmarTools\Support\LaravelMyanmarTools;
 
 class NormalizeMyanmarPhoneNumber
 {
     public function __invoke()
     {
         return function (string $key): string {
-            return LaravelMyanmarToolsPackage::normalizeMyanmarPhoneNumber($this->input($key));
+            return LaravelMyanmarTools::normalizeMyanmarPhoneNumber($this->input($key));
         };
     }
 }

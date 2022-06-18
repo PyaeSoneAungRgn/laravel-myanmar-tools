@@ -1,10 +1,10 @@
 <?php
 
-namespace PyaeSoneAung\LaravelMyanmarTools\Packages;
+namespace PyaeSoneAung\LaravelMyanmarTools\Support;
 
-use Googlei18n\MyanmarTools\ZawgyiDetector;
+use Googlei18n\MyanmarTools\ZawgyiDetector as ZawgyiDetectorPackage;
 
-class ZawgyiDetectorPackage
+class ZawgyiDetector
 {
     const ZAWGYI = 'zawgyi';
     const UNICODE = 'unicode';
@@ -35,8 +35,8 @@ class ZawgyiDetectorPackage
             : static::UNICODE;
     }
 
-    protected static function getPackage(): ZawgyiDetector
+    protected static function getPackage(): ZawgyiDetectorPackage
     {
-        return new ZawgyiDetector();
+        return new ZawgyiDetectorPackage();
     }
 }

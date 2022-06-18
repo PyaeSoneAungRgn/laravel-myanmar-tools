@@ -2,14 +2,14 @@
 
 namespace PyaeSoneAung\LaravelMyanmarTools\Macro\Str;
 
-use PyaeSoneAung\LaravelMyanmarTools\Packages\RabbitPackage;
+use PyaeSoneAung\LaravelMyanmarTools\Support\Rabbit;
 
 class UniToZg
 {
     public function __invoke()
     {
         return function (?string $value): string {
-            return RabbitPackage::uniToZg($value);
+            return Rabbit::uniToZg($value);
         };
     }
 }

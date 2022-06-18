@@ -2,14 +2,14 @@
 
 namespace PyaeSoneAung\LaravelMyanmarTools\Macro\Request;
 
-use PyaeSoneAung\LaravelMyanmarTools\Packages\ZawgyiDetectorPackage;
+use PyaeSoneAung\LaravelMyanmarTools\Support\ZawgyiDetector;
 
 class IsZawgyiFont
 {
     public function __invoke()
     {
         return function (string $key): bool {
-            return ZawgyiDetectorPackage::isZawgyiFont($this->input($key));
+            return ZawgyiDetector::isZawgyiFont($this->input($key));
         };
     }
 }

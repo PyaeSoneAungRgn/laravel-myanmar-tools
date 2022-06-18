@@ -2,14 +2,14 @@
 
 namespace PyaeSoneAung\LaravelMyanmarTools\Macro\Str;
 
-use PyaeSoneAung\LaravelMyanmarTools\Packages\ZawgyiDetectorPackage;
+use PyaeSoneAung\LaravelMyanmarTools\Support\ZawgyiDetector;
 
 class IsUnicodeFont
 {
     public function __invoke()
     {
         return function (?string $value): bool {
-            return ZawgyiDetectorPackage::isUnicodeFont($value);
+            return ZawgyiDetector::isUnicodeFont($value);
         };
     }
 }

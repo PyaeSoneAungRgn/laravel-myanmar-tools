@@ -2,14 +2,14 @@
 
 namespace PyaeSoneAung\LaravelMyanmarTools\Macro\Str;
 
-use PyaeSoneAung\LaravelMyanmarTools\Packages\MyanmarPhoneNumberPackage;
+use PyaeSoneAung\LaravelMyanmarTools\Support\MyanmarPhoneNumber;
 
 class IsMpt
 {
     public function __invoke()
     {
         return function (?string $value): bool {
-            return MyanmarPhoneNumberPackage::isMpt($value);
+            return MyanmarPhoneNumber::isMpt($value);
         };
     }
 }

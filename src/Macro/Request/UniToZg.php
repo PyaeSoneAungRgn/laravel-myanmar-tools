@@ -2,14 +2,14 @@
 
 namespace PyaeSoneAung\LaravelMyanmarTools\Macro\Request;
 
-use PyaeSoneAung\LaravelMyanmarTools\Packages\RabbitPackage;
+use PyaeSoneAung\LaravelMyanmarTools\Support\Rabbit;
 
 class UniToZg
 {
     public function __invoke()
     {
         return function (string $key): string {
-            return RabbitPackage::uniToZg($this->input($key));
+            return Rabbit::uniToZg($this->input($key));
         };
     }
 }

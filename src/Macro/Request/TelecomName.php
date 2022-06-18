@@ -2,14 +2,14 @@
 
 namespace PyaeSoneAung\LaravelMyanmarTools\Macro\Request;
 
-use PyaeSoneAung\LaravelMyanmarTools\Packages\MyanmarPhoneNumberPackage;
+use PyaeSoneAung\LaravelMyanmarTools\Support\MyanmarPhoneNumber;
 
 class TelecomName
 {
     public function __invoke()
     {
         return function (string $key): string {
-            return MyanmarPhoneNumberPackage::telecomName($this->input($key));
+            return MyanmarPhoneNumber::telecomName($this->input($key));
         };
     }
 }

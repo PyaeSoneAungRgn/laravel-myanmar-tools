@@ -2,14 +2,14 @@
 
 namespace PyaeSoneAung\LaravelMyanmarTools\Macro\Str;
 
-use PyaeSoneAung\LaravelMyanmarTools\Packages\ZawgyiDetectorPackage;
+use PyaeSoneAung\LaravelMyanmarTools\Support\ZawgyiDetector;
 
 class DetectMyanmarFont
 {
     public function __invoke()
     {
         return function (?string $value): string {
-            return ZawgyiDetectorPackage::detectMyanmarFont($value);
+            return ZawgyiDetector::detectMyanmarFont($value);
         };
     }
 }

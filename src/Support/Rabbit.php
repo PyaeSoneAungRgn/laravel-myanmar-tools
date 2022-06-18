@@ -1,10 +1,10 @@
 <?php
 
-namespace PyaeSoneAung\LaravelMyanmarTools\Packages;
+namespace PyaeSoneAung\LaravelMyanmarTools\Support;
 
-use Rabbit;
+use Rabbit as RabbitPackage;
 
-class RabbitPackage
+class Rabbit
 {
     public static function uniToZg(?string $str): string
     {
@@ -16,8 +16,8 @@ class RabbitPackage
         return static::getPackage()->zg2uni($str);
     }
 
-    protected static function getPackage(): Rabbit
+    protected static function getPackage(): RabbitPackage
     {
-        return new \Rabbit();
+        return new RabbitPackage();
     }
 }
