@@ -112,6 +112,6 @@ class StrTest extends TestCase
         $this->assertEquals('09250000000', Str::normalizeMyanmarPhoneNumber('(၀၉)၂၅၀၀၀၀၀၀၀'));
         $this->assertEquals('09250000000', Str::normalizeMyanmarPhoneNumber('၀၉-၂၅၀၀၀၀၀၀၀'));
         $this->assertEquals('09250000000', Str::normalizeMyanmarPhoneNumber('+၉၅၉၂၅၀၀၀၀၀၀၀'));
-        $this->assertEquals('09250707070', Str::normalizeMyanmarPhoneNumber('09 ၂၅ဝရဝရဝရဝ'));
+        $this->assertEquals('959250707070', Str::normalizeMyanmarPhoneNumber('09 ၂၅ဝရဝရဝရဝ', '959'));
     }
 }

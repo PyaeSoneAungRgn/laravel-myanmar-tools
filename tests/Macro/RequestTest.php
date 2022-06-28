@@ -168,6 +168,6 @@ class RequestTest extends TestCase
         $this->assertEquals('09250000000', $request->normalizeMyanmarPhoneNumber('phone_1'));
         $this->assertEquals('09250000000', $request->normalizeMyanmarPhoneNumber('phone_2'));
         $this->assertEquals('09250000000', $request->normalizeMyanmarPhoneNumber('phone_3'));
-        $this->assertEquals('09250707070', $request->normalizeMyanmarPhoneNumber('phone_4'));
+        $this->assertEquals('959250707070', $request->normalizeMyanmarPhoneNumber('phone_4', '959'));
     }
 }

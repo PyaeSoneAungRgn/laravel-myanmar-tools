@@ -8,8 +8,8 @@ class NormalizeMyanmarPhoneNumber
 {
     public function __invoke()
     {
-        return function (string $key): string {
-            return LaravelMyanmarTools::normalizeMyanmarPhoneNumber($this->input($key));
+        return function (string $key, string $prefix = '09'): string {
+            return LaravelMyanmarTools::normalizeMyanmarPhoneNumber($this->input($key), $prefix);
         };
     }
 }
