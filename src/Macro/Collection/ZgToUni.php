@@ -11,6 +11,7 @@ class ZgToUni
     public function __invoke()
     {
         return function (?string $key = null): Collection {
+            /** @var \Illuminate\Support\Collection $this */
             return $this->map(function ($item) use ($key) {
                 if ($key) {
                     Arr::set($item, $key, Str::zgToUni(Arr::get($item, $key)));
