@@ -56,6 +56,7 @@ A package for Myanmar tools which extend Laravel’s core.
   - [mec](#mec)
   - [mytel](#mytel)
   - [Customizing The Error Messages](#customizing-the-error-messages)
+- [Testing](#testing)
 - [Version History](#version-history)
 - [Credits](#credits)
 
@@ -605,6 +606,12 @@ return [
     'mec' => 'The :attribute must be valid MEC number.',
     'mytel' => 'The :attribute must be valid Mytel number.',
 ];
+```
+
+## Testing
+
+```bash
+composer test
 ```
 
 ## Version History
