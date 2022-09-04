@@ -2,7 +2,6 @@
 
 namespace PyaeSoneAung\LaravelMyanmarTools\Support\LaravelMyanmarTools;
 
-use Illuminate\Support\Str;
 use Exception;
 
 /**
@@ -111,7 +110,7 @@ class Nrc
 
     protected function convert(string $nrc, string $type): string
     {
-        $nrc = Str::replace(static::NAING, static::N, Str::upper($nrc));
+        $nrc = str_replace(static::NAING, static::N, strtoupper($nrc));
         $en = [
             ...static::EN_TYPES,
             ...static::EN_NUMS,
