@@ -70,6 +70,10 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             'detectMyanmarFont' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Str\DetectMyanmarFont::class,
             'uniToZg' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Str\UniToZg::class,
             'zgToUni' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Str\ZgToUni::class,
+
+            // NRC
+            'isNrc' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Str\IsNrc::class,
+            'normalizeNrc' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Str\NormalizeNrc::class,
         ];
     }
 
@@ -92,6 +96,10 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             'detectMyanmarFont' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Request\DetectMyanmarFont::class,
             'uniToZg' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Request\UniToZg::class,
             'zgToUni' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Request\ZgToUni::class,
+
+            // NRC
+            'isNrc' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Request\IsNrc::class,
+            'normalizeNrc' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Request\NormalizeNrc::class,
         ];
     }
 
@@ -121,6 +129,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             'telenor' => \PyaeSoneAung\LaravelMyanmarTools\Extend\Validator\Telenor::class,
             'mec' => \PyaeSoneAung\LaravelMyanmarTools\Extend\Validator\Mec::class,
             'mytel' => \PyaeSoneAung\LaravelMyanmarTools\Extend\Validator\Mytel::class,
+            'nrc' => \PyaeSoneAung\LaravelMyanmarTools\Extend\Validator\Nrc::class,
         ];
     }
 

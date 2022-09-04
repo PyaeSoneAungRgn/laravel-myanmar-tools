@@ -201,3 +201,61 @@ $request->normalizeMyanmarPhoneNumber('phone');
 
 // 09250707070 (ဝလုံး နဲ့ ရကောက် ပါလျှင် 0 နဲ့ 7 လို့ပြောင်းလဲပါသည်)
 ```
+
+## Check NRC
+
+```php
+// https://{domain}.com/{path}?nrc=12/OUKAMA(N)123456
+
+$request->isNrc('nrc');
+
+// true
+```
+
+```php
+// https://{domain}.com/{path}?nrc=12/OuKaMa(Naing)123456
+
+$request->isNrc('nrc');
+
+// true
+```
+
+```php
+// https://{domain}.com/{path}?nrc=၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆
+
+$request->isNrc('nrc');
+
+// true
+```
+
+## Normalize NRC
+
+```php
+// https://{domain}.com/{path}?nrc=12/OUKAMA(N)123456
+
+$request->normalizeNrc('nrc');
+// 12/OUKAMA(N)123456
+
+$request->normalizeNrc('nrc', mm);
+// ၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆
+```
+
+```php
+// https://{domain}.com/{path}?nrc=12/OuKaMa(Naing)123456
+
+$request->normalizeNrc('nrc');
+// 12/OUKAMA(N)123456
+
+$request->normalizeNrc('nrc', mm);
+// ၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆
+```
+
+```php
+// https://{domain}.com/{path}?nrc=၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆
+
+$request->normalizeNrc('nrc');
+// 12/OUKAMA(N)123456
+
+$request->normalizeNrc('nrc', mm);
+// ၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆
+```

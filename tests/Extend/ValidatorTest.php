@@ -54,4 +54,12 @@ class ValidatorTest extends TestCase
             'phone' => 'mytel'
         ])->passes());
     }
+
+    /** @test */
+    public function it_can_validate_nrc()
+    {
+        $this->assertTrue(Validator::make(['nrc' => '12/OUKAMA(N)123456'], [
+            'nrc' => 'nrc'
+        ])->passes());
+    }
 }

@@ -25,6 +25,9 @@ class RequestTest extends TestCase
     const MEC_PHONE_NO = '0930000000';
     const MYTEL_PHONE_NO = '09690000000';
 
+    const NRC_EN = '12/OUKAMA(N)123456';
+    const NRC_MM = '၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆';
+
     private function createRequest(array $payload = []): Request
     {
         return new Request($payload);
@@ -169,5 +172,28 @@ class RequestTest extends TestCase
         $this->assertEquals('09250000000', $request->normalizeMyanmarPhoneNumber('phone_2'));
         $this->assertEquals('09250000000', $request->normalizeMyanmarPhoneNumber('phone_3'));
         $this->assertEquals('959250707070', $request->normalizeMyanmarPhoneNumber('phone_4', '959'));
+    }
+
+    /** @test */
+    public function it_can_check_nrc()
+    {
+        $request = $this->createRequest([
+            'nrc_en' => static::NRC_EN,
+            'nrc_mm' => static::NRC_MM,
+        ]);
+        $this->assertTrue($request->isNrc('nrc_en'));
+        $this->assertTrue($request->isNrc('nrc_mm'));
+    }
+
+    /** @test */
+    public function it_can_normalize_nrc()
+    {
+        $request = $this->createRequest([
+            'nrc_en' => '12/OuKaMa(Naing)123456',
+            'nrc_mm' => '၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆',
+        ]);
+
+        $this->assertEquals(static::NRC_EN, $request->normalizeNrc('nrc_en'));
+        $this->assertEquals(static::NRC_MM, $request->normalizeNrc('nrc_mm', 'mm'));
     }
 }

@@ -201,3 +201,61 @@ Str::normalizeMyanmarPhoneNumber('09-၂၅ဝရဝရဝရဝ');
 
 // 09250707070 (ဝလုံး နဲ့ ရကောက် ပါလျှင် 0 နဲ့ 7 လို့ပြောင်းလဲပါသည်)
 ```
+
+## Check NRC
+
+```php
+use Illuminate\Support\Str;
+
+Str::isNrc('12/OUKAMA(N)123456');
+
+// true
+```
+
+```php
+use Illuminate\Support\Str;
+
+Str::isNrc('12/OuKaMa(Naing)123456');
+
+// true
+```
+
+```php
+use Illuminate\Support\Str;
+
+Str::isNrc('၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆');
+
+// true
+```
+
+## Normalize NRC
+
+```php
+use Illuminate\Support\Str;
+
+Str::normalizeNrc('12/OUKAMA(N)123456');
+// 12/OUKAMA(N)123456
+
+Str::normalizeNrc('12/OUKAMA(N)123456', 'mm');
+// ၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆
+```
+
+```php
+use Illuminate\Support\Str;
+
+Str::normalizeNrc('12/OuKaMa(Naing)123456');
+// 12/OUKAMA(N)123456
+
+Str::normalizeNrc('12/OuKaMa(Naing)123456', 'mm');
+// ၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆
+```
+
+```php
+use Illuminate\Support\Str;
+
+Str::normalizeNrc('၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆');
+// 12/OUKAMA(N)123456
+
+Str::normalizeNrc('၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆', 'mm');
+// ၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆
+```

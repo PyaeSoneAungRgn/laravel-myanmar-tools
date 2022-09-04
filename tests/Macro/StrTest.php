@@ -25,6 +25,9 @@ class StrTest extends TestCase
     const MEC_PHONE_NO = '0930000000';
     const MYTEL_PHONE_NO = '09690000000';
 
+    const NRC_EN = '12/OUKAMA(N)123456';
+    const NRC_MM = '၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆';
+
     /** @test */
     public function it_can_check_unicode_font()
     {
@@ -113,5 +116,19 @@ class StrTest extends TestCase
         $this->assertEquals('09250000000', Str::normalizeMyanmarPhoneNumber('၀၉-၂၅၀၀၀၀၀၀၀'));
         $this->assertEquals('09250000000', Str::normalizeMyanmarPhoneNumber('+၉၅၉၂၅၀၀၀၀၀၀၀'));
         $this->assertEquals('959250707070', Str::normalizeMyanmarPhoneNumber('09 ၂၅ဝရဝရဝရဝ', '959'));
+    }
+
+    /** @test */
+    public function it_can_check_nrc()
+    {
+        $this->assertTrue(Str::isNrc(static::NRC_EN));
+        $this->assertTrue(Str::isNrc(static::NRC_MM));
+    }
+
+    /** @test */
+    public function it_can_normalize_nrc()
+    {
+        $this->assertEquals(Str::normalizeNrc('12/OuKaMa(Naing)123456'), static::NRC_EN);
+        $this->assertEquals(Str::normalizeNrc('၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆', 'mm'), static::NRC_MM);
     }
 }

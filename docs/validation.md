@@ -47,3 +47,11 @@ $request->validate([
     'phone' => ['required', 'mytel'],
 ]);
 ```
+
+## Validate NRC
+
+```php
+$request->validate([
+    'nrc' => ['required', 'nrc'],
+]);
+```
