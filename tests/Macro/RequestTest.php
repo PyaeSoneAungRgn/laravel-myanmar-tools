@@ -190,7 +190,7 @@ class RequestTest extends TestCase
     {
         $request = $this->createRequest([
             'nrc_en' => '12/OuKaMa(Naing)123456',
-            'nrc_mm' => '၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆'
+            'nrc_mm' => '၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆',
         ]);
 
         $this->assertEquals(static::NRC_EN, $request->normalizeNrc('nrc_en'));

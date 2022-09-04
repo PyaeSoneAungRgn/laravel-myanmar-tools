@@ -9,24 +9,24 @@ use Exception;
  */
 class Nrc
 {
-    protected string $nrc;
+    protected $nrc;
 
-    protected const EN_CHARS = ['KA', 'KH', 'GA', 'GH', 'NG', 'CA', 'CH', 'JA', 'JH', 'NY', 'DD', 'NN', 'TA', 'TH', 'DA', 'DH', 'NA', 'PA', 'PH', 'BA', 'BH', 'MA', 'YA', 'RA', 'LA', 'WA', 'SA', 'HA', 'LL', 'AH', 'OU', 'AE'];
-    protected const MM_CHARS = ['က', 'ခ', 'ဂ', 'ဃ', 'င', 'စ', 'ဆ', 'ဇ', 'ဈ', 'ည', 'ဎ', 'ဏ', 'တ', 'ထ', 'ဒ', 'ဓ', 'န', 'ပ', 'ဖ', 'ဗ', 'ဘ', 'မ', 'ယ', 'ရ', 'လ', 'ဝ', 'သ', 'ဟ', 'ဠ', 'အ', 'ဥ', 'ဧ'];
+    const EN_CHARS = ['KA', 'KH', 'GA', 'GH', 'NG', 'CA', 'CH', 'JA', 'JH', 'NY', 'DD', 'NN', 'TA', 'TH', 'DA', 'DH', 'NA', 'PA', 'PH', 'BA', 'BH', 'MA', 'YA', 'RA', 'LA', 'WA', 'SA', 'HA', 'LL', 'AH', 'OU', 'AE'];
+    const MM_CHARS = ['က', 'ခ', 'ဂ', 'ဃ', 'င', 'စ', 'ဆ', 'ဇ', 'ဈ', 'ည', 'ဎ', 'ဏ', 'တ', 'ထ', 'ဒ', 'ဓ', 'န', 'ပ', 'ဖ', 'ဗ', 'ဘ', 'မ', 'ယ', 'ရ', 'လ', 'ဝ', 'သ', 'ဟ', 'ဠ', 'အ', 'ဥ', 'ဧ'];
 
-    protected const EN_NUMS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    protected const MM_NUMS = ['၀', '၁', '၂', '၃', '၄', '၅', '၆', '၇', '၈', '၉'];
+    const EN_NUMS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const MM_NUMS = ['၀', '၁', '၂', '၃', '၄', '၅', '၆', '၇', '၈', '၉'];
 
-    protected const EN_TYPES = ['N'];
-    protected const MM_TYPES = ['နိုင်'];
+    const EN_TYPES = ['N'];
+    const MM_TYPES = ['နိုင်'];
 
-    protected const NAING = 'NAING';
-    protected const N = 'N';
+    const NAING = 'NAING';
+    const N = 'N';
 
-    protected const EN_TO_MM = 'en-to-mm';
-    protected const MM_TO_EN = 'mm-to-en';
+    const EN_TO_MM = 'en-to-mm';
+    const MM_TO_EN = 'mm-to-en';
 
-    protected const STATES = [
+    const STATES = [
         [
             'en' => 'Kachin',
             'mm' => 'ကချင်ပြည်နယ်'

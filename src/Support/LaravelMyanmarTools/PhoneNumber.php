@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class PhoneNumber
 {
-    protected string $phoneNo;
+    protected $phoneNo;
 
     public function __construct(string $phoneNo)
     {
