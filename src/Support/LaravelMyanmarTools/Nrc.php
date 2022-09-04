@@ -111,16 +111,8 @@ class Nrc
     protected function convert(string $nrc, string $type): string
     {
         $nrc = str_replace(static::NAING, static::N, strtoupper($nrc));
-        $en = [
-            ...static::EN_TYPES,
-            ...static::EN_NUMS,
-            ...static::EN_CHARS
-        ];
-        $mm = [
-            ...static::MM_TYPES,
-            ...static::MM_NUMS,
-            ...static::MM_CHARS
-        ];
+        $en = array_merge(static::EN_TYPES, static::EN_NUMS, static::EN_CHARS);
+        $mm = array_merge(static::MM_TYPES, static::MM_NUMS, static::MM_CHARS);
         if ($type == static::EN_TO_MM) {
             $en = array_reverse($en);
             $mm = array_reverse($mm);
