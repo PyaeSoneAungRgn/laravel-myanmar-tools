@@ -18,14 +18,6 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             __DIR__ . '/../resources/lang' =>  base_path('/lang/vendor/' . $this->getPackageName()),
         ]);
 
-        Collection::make($this->validatorExtends())
-            ->each(function ($class, $extend) {
-                Validator::extend($extend, app($class)(), $this->getErrorMessage($extend));
-            });
-    }
-
-    public function register()
-    {
         Collection::make($this->strMacros())
             ->reject(function ($class, $macro) {
                 return Str::hasMacro($macro);
@@ -48,6 +40,11 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             })
             ->each(function ($class, $macro) {
                 Collection::macro($macro, app($class)());
+            });
+
+        Collection::make($this->validatorExtends())
+            ->each(function ($class, $extend) {
+                Validator::extend($extend, app($class)(), $this->getErrorMessage($extend));
             });
     }
 
