@@ -1,5 +1,7 @@
 # Version History
 
+- 2.3.0
+  - added nrc macros and validation
 - 2.2.1
   - bug fixed publishing translations
 - 2.2.0

@@ -4,9 +4,14 @@
 
 - Usage
 
-  - [Str](str.md)
-  - [Request](request.md)
-  - [Collection](collection.md)
-  - [Validation](validation.md)
+  - [Myanmar Font](myanmar-font.md)
+  - [Myanmar Phone Number](myanmar-phone-number.md)
+  - [NRC](nrc.md)
 
-- [Version History](version-history.md)
+- Advanced Usage
+
+  - [Create Custom Macros](create-custom-macros.md)
+
+- More
+
+  - [Version History](version-history.md)
