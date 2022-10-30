@@ -131,11 +131,11 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         return [
             // Telecom
             'whereMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\WhereMyanmarPhoneNumber::class,
-            'whereMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\whereMpt::class,
-            'whereOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\whereOoredoo::class,
-            'whereTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\whereTelenor::class,
-            'whereMec' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\whereMec::class,
-            'whereMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\whereMytel::class,
+            'whereMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\WhereMpt::class,
+            'whereOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\WhereOoredoo::class,
+            'whereTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\WhereTelenor::class,
+            'whereMec' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\WhereMec::class,
+            'whereMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\WhereMytel::class,
         ];
     }
 
