@@ -1,5 +1,7 @@
 # Version History
 
+- 2.4.0
+  - added builder macros
 - 2.3.0
   - added nrc macros and validation
 - 2.2.1

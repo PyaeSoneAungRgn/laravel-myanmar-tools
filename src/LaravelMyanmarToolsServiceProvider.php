@@ -2,6 +2,7 @@
 
 namespace PyaeSoneAung\LaravelMyanmarTools;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -40,6 +41,14 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             })
             ->each(function ($class, $macro) {
                 Collection::macro($macro, app($class)());
+            });
+
+        Collection::make($this->builderMacros())
+            ->reject(function ($class, $macro) {
+                return Builder::hasGlobalMacro($macro);
+            })
+            ->each(function ($class, $macro) {
+                Builder::macro($macro, app($class)());
             });
 
         Collection::make($this->validatorExtends())
@@ -114,6 +123,19 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             // Font
             'zgToUni' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Collection\ZgToUni::class,
             'uniToZg' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Collection\UniToZg::class,
+        ];
+    }
+
+    private function builderMacros(): array
+    {
+        return [
+            // Telecom
+            'whereMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\WhereMyanmarPhoneNumber::class,
+            'whereMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\whereMpt::class,
+            'whereOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\whereOoredoo::class,
+            'whereTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\whereTelenor::class,
+            'whereMec' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\whereMec::class,
+            'whereMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macro\Builder\whereMytel::class,
         ];
     }
 
