@@ -74,3 +74,10 @@ composer test
 - [Myanmar Tools (Zawgyi detection & conversion)](https://github.com/google/myanmar-tools)
 - [Rabbit-PHP](https://github.com/Rabbit-Converter/Rabbit-PHP)
 - [NRCPrefix](https://github.com/greenlikeorange/NRCPrefix)
+
+
+## Thanks JetBrains
+
+<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" width="100"></a>
+
+JetBrains support Laravel Myanmar Tools by providing [Open Source License](https://www.jetbrains.com/community/opensource/#support).
