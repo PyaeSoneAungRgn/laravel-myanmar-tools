@@ -1,7 +1,3 @@
-<p align="center">
-<a href="https://laravel-myanmar-tools.com" target="_blank"><img src="https://raw.githubusercontent.com/PyaeSoneAungRgn/laravel-myanmar-tools/main/docs/assets/images/logo.png" width="200"></a>
-</p>
-
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/PyaeSoneAungRgn/laravel-myanmar-tools/run-tests.yml?branch=main&label=test)](https://github.com/PyaeSoneAungRgn/laravel-myanmar-tools/actions/workflows/run-tests.yml)
 [![Packagist Version](https://img.shields.io/packagist/v/pyaesoneaung/laravel-myanmar-tools)](https://packagist.org/packages/pyaesoneaung/laravel-myanmar-tools)
 [![Packagist Downloads](https://img.shields.io/packagist/dt/pyaesoneaung/laravel-myanmar-tools)](https://packagist.org/packages/pyaesoneaung/laravel-myanmar-tools)
