@@ -7,4 +7,5 @@ return [
     'telenor' => 'The :attribute must be valid Telenor number.',
     'mec' => 'The :attribute must be valid MEC number.',
     'mytel' => 'The :attribute must be valid Mytel number.',
+    'nrc' => 'The :attribute must be valid NRC.',
 ];
