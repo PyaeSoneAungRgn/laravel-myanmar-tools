@@ -2,7 +2,7 @@
 [![Packagist Version](https://img.shields.io/packagist/v/pyaesoneaung/laravel-myanmar-tools)](https://packagist.org/packages/pyaesoneaung/laravel-myanmar-tools)
 [![Packagist Downloads](https://img.shields.io/packagist/dt/pyaesoneaung/laravel-myanmar-tools)](https://packagist.org/packages/pyaesoneaung/laravel-myanmar-tools)
 
-# Laravel Myanmar Tools
+# Myanmar Tools For Laravel
 
 A package for Myanmar tools which extend Laravel’s core.
 
@@ -76,4 +76,4 @@ composer test
 
 <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" width="100"></a>
 
-JetBrains support Laravel Myanmar Tools by providing [Open Source License](https://www.jetbrains.com/community/opensource/#support).
+JetBrains support Myanmar Tools For Laravel by providing [Open Source License](https://www.jetbrains.com/community/opensource/#support).
