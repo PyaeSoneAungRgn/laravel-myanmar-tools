@@ -1,72 +1,28 @@
-# original: https://github.com/spatie/laravel-collection-macros/blob/main/.github/workflows/run-tests.yml
 name: Run tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [3.x]
+  pull_request:
+    branches: [3.x]
 
 jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [8.2, 8.1, 8.0, 7.4, 7.3, 7.2.5]
-        laravel: [10.*, 9.*, 8.*, 7.*, 6.*]
-        dependency-version: [prefer-stable]
+        php: [8.2, 8.1]
+        laravel: [9.*, 10.*]
+        stability: [prefer-lowest, prefer-stable]
         include:
-          - laravel: 10.*
-            testbench: 8.*
           - laravel: 9.*
             testbench: 7.*
-          - laravel: 8.*
-            testbench: 6.*
-          - laravel: 7.*
-            testbench: 5.*
-          - laravel: 6.*
-            testbench: 4.*
-        exclude:
           - laravel: 10.*
-            php: 7.1
-          - laravel: 10.*
-            php: 7.2
-          - laravel: 10.*
-            php: 7.3
-          - laravel: 10.*
-            php: 7.4
-          - laravel: 10.*
-            php: '8.0'
-          - laravel: 10.*
-            php: '7.4'
-          - laravel: 10.*
-            php: '7.3'
-          - laravel: 10.*
-            php: '7.2.5'
-          - laravel: 9.*
-            php: 7.4
-          - laravel: 9.*
-            php: 7.3
-          - laravel: 9.*
-            php: 7.2.5
-          - laravel: 8.*
-            php: 8.1
-          - laravel: 8.*
-            php: 8.0
-          - laravel: 8.*
-            php: 7.2.5
-          - laravel: 7.*
-            php: 8.2
-          - laravel: 7.*
-            php: 8.1
-          - laravel: 7.*
-            php: 8.0
-          - laravel: 6.*
-            php: 8.2
-          - laravel: 6.*
-            php: 8.1
-          - laravel: 6.*
-            php: 8.0
+            testbench: 8.*
 
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
     steps:
       - name: Checkout code
@@ -76,13 +32,21 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
           coverage: none
+
+      - name: Setup problem matchers
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "nesbot/carbon:${{ matrix.carbon }}" --no-interaction --no-update
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+
+      - name: List Installed Dependencies
+        run: composer show -D
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: vendor/bin/pest

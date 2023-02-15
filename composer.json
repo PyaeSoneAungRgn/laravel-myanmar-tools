@@ -22,14 +22,15 @@
         }
     ],
     "require": {
-        "php": "^7.2.5|^8.0",
-        "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0",
+        "php": "^8.1",
+        "illuminate/support": "^9.0|^10.0",
         "cyberwings/myanmar-phone-number-php": "^0.0.3",
         "googlei18n/myanmar-tools": "^1.2",
         "rabbit-converter/rabbit-php": "dev-master"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0|^5.0|^5.0|^7.0|^8.0"
+        "orchestra/testbench": "^7.0|^8.0",
+        "pestphp/pest": "^1.22"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -51,6 +52,11 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/pest"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }
