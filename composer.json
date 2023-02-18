@@ -23,14 +23,15 @@
     ],
     "require": {
         "php": "^8.1",
-        "illuminate/support": "^9.0|^10.0",
-        "cyberwings/myanmar-phone-number-php": "^0.0.3",
-        "googlei18n/myanmar-tools": "^1.2",
-        "rabbit-converter/rabbit-php": "dev-master"
+        "illuminate/contracts": "^9.0|^10.0",
+        "laravel-myanmar-tools/phone-number": "^1.0.1",
+        "laravel-myanmar-tools/font": "^1.0",
+        "laravel-myanmar-tools/nrc": "^1.0.1"
     },
     "require-dev": {
         "orchestra/testbench": "^7.0|^8.0",
-        "pestphp/pest": "^1.22"
+        "pestphp/pest": "^1.22",
+        "laravel/pint": "^1.5"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -52,7 +53,9 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/pest"
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
     },
     "config": {
         "allow-plugins": {
