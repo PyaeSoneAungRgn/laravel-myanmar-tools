@@ -13,14 +13,21 @@ use Illuminate\Support\Str;
 
 class LaravelMyanmarToolsServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', $this->getPackageName());
+        $this->registerStrMacros();
+        $this->registerRequestMacros();
+        $this->registerCollectionMacros();
+        $this->registerEloquentBuilderMacros();
+        $this->registerQueryBuilderMacros();
+        $this->registerValidatorMacros();
+        $this->registerCarbonMacros();
 
-        $this->publishes([
-            __DIR__.'/../resources/lang' => base_path('/lang/vendor/'.$this->getPackageName()),
-        ]);
+        $this->registerLang();
+    }
 
+    private function registerStrMacros(): void
+    {
         Collection::make($this->strMacros())
             ->reject(function ($class, $macro) {
                 return Str::hasMacro($macro);
@@ -28,7 +35,10 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             ->each(function ($class, $macro) {
                 Str::macro($macro, app($class)());
             });
+    }
 
+    private function registerRequestMacros(): void
+    {
         Collection::make($this->requestMacros())
             ->reject(function ($class, $macro) {
                 return Request::hasMacro($macro);
@@ -36,7 +46,10 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             ->each(function ($class, $macro) {
                 Request::macro($macro, app($class)());
             });
+    }
 
+    private function registerCollectionMacros(): void
+    {
         Collection::make($this->collectionMacros())
             ->reject(function ($class, $macro) {
                 return Collection::hasMacro($macro);
@@ -44,7 +57,10 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             ->each(function ($class, $macro) {
                 Collection::macro($macro, app($class)());
             });
+    }
 
+    private function registerEloquentBuilderMacros(): void
+    {
         Collection::make($this->eloquentBuilderMacros())
             ->reject(function ($class, $macro) {
                 return EloquentBuilder::hasGlobalMacro($macro);
@@ -52,7 +68,10 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             ->each(function ($class, $macro) {
                 EloquentBuilder::macro($macro, app($class)());
             });
+    }
 
+    private function registerQueryBuilderMacros(): void
+    {
         Collection::make($this->queryBuilderMacros())
             ->reject(function ($class, $macro) {
                 return QueryBuilder::hasMacro($macro);
@@ -60,12 +79,18 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             ->each(function ($class, $macro) {
                 QueryBuilder::macro($macro, app($class)());
             });
+    }
 
+    private function registerValidatorMacros(): void
+    {
         Collection::make($this->validatorExtends())
             ->each(function ($class, $extend) {
                 Validator::extend($extend, app($class)(), $this->getErrorMessage($extend));
             });
+    }
 
+    private function registerCarbonMacros(): void
+    {
         Collection::make($this->carbonMacros())
             ->reject(function ($class, $macro) {
                 return Carbon::hasMacro($macro);
@@ -73,6 +98,14 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             ->each(function ($class, $macro) {
                 Carbon::macro($macro, app($class)());
             });
+    }
+
+    private function registerLang(): void
+    {
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', $this->getPackageName());
+        $this->publishes([
+            __DIR__.'/../resources/lang' => base_path('/lang/vendor/'.$this->getPackageName()),
+        ]);
     }
 
     private function strMacros(): array
@@ -199,7 +232,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         return 'laravelMyanmarTools';
     }
 
-    private function getErrorMessage($extend)
+    private function getErrorMessage($extend): mixed
     {
         return trans($this->getPackageName().'::validation.'.Str::snake($extend));
     }
