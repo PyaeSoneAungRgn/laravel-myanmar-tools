@@ -5,6 +5,7 @@ namespace PyaeSoneAung\LaravelMyanmarTools;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
@@ -53,6 +54,9 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             });
 
         Collection::make($this->queryBuilderMacros())
+            ->reject(function ($class, $macro) {
+                return QueryBuilder::hasMacro($macro);
+            })
             ->each(function ($class, $macro) {
                 QueryBuilder::macro($macro, app($class)());
             });
@@ -60,6 +64,14 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         Collection::make($this->validatorExtends())
             ->each(function ($class, $extend) {
                 Validator::extend($extend, app($class)(), $this->getErrorMessage($extend));
+            });
+
+        Collection::make($this->carbonMacros())
+            ->reject(function ($class, $macro) {
+                return Carbon::hasMacro($macro);
+            })
+            ->each(function ($class, $macro) {
+                Carbon::macro($macro, app($class)());
             });
     }
 
@@ -168,6 +180,17 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             'mec' => \PyaeSoneAung\LaravelMyanmarTools\Validator\Mec::class,
             'mytel' => \PyaeSoneAung\LaravelMyanmarTools\Validator\Mytel::class,
             'nrc' => \PyaeSoneAung\LaravelMyanmarTools\Validator\Nrc::class,
+        ];
+    }
+
+    private function carbonMacros(): array
+    {
+        return [
+            'isIndependenceDay' => \PyaeSoneAung\LaravelMyanmarTools\Carbon\IsIndependenceDay::class,
+            'isUnionDay' => \PyaeSoneAung\LaravelMyanmarTools\Carbon\IsUnionDay::class,
+            'isPeasantsDay' => \PyaeSoneAung\LaravelMyanmarTools\Carbon\IsPeasantsDay::class,
+            'isLabourDay' => \PyaeSoneAung\LaravelMyanmarTools\Carbon\IsLabourDay::class,
+            'isMartyrsDay' => \PyaeSoneAung\LaravelMyanmarTools\Carbon\IsMartyrsDay::class,
         ];
     }
 
