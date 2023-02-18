@@ -2,7 +2,8 @@
 
 namespace PyaeSoneAung\LaravelMyanmarTools;
 
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
@@ -43,12 +44,17 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
                 Collection::macro($macro, app($class)());
             });
 
-        Collection::make($this->builderMacros())
+        Collection::make($this->eloquentBuilderMacros())
             ->reject(function ($class, $macro) {
-                return Builder::hasGlobalMacro($macro);
+                return EloquentBuilder::hasGlobalMacro($macro);
             })
             ->each(function ($class, $macro) {
-                Builder::macro($macro, app($class)());
+                EloquentBuilder::macro($macro, app($class)());
+            });
+
+        Collection::make($this->queryBuilderMacros())
+            ->each(function ($class, $macro) {
+                QueryBuilder::macro($macro, app($class)());
             });
 
         Collection::make($this->validatorExtends())
@@ -126,7 +132,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         ];
     }
 
-    private function builderMacros(): array
+    private function eloquentBuilderMacros(): array
     {
         return [
             // Telecom
@@ -136,6 +142,19 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
             'whereTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Eloquent\WhereTelenor::class,
             'whereMec' => \PyaeSoneAung\LaravelMyanmarTools\Eloquent\WhereMec::class,
             'whereMytel' => \PyaeSoneAung\LaravelMyanmarTools\Eloquent\WhereMytel::class,
+        ];
+    }
+
+    private function queryBuilderMacros(): array
+    {
+        return [
+            // Telecom
+            'whereMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereMyanmarPhoneNumber::class,
+            'whereMpt' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereMpt::class,
+            'whereOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereOoredoo::class,
+            'whereTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereTelenor::class,
+            'whereMec' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereMec::class,
+            'whereMytel' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereMytel::class,
         ];
     }
 
@@ -152,7 +171,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         ];
     }
 
-    private function getPackageName()
+    private function getPackageName(): string
     {
         return 'laravelMyanmarTools';
     }
