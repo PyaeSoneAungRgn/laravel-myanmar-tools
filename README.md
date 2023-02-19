@@ -7,8 +7,8 @@
 A package for Myanmar tools which extend Laravel’s core.
 
 - ⚡️ Simple & Powerful
-- 🇲🇲 Include Myanmar Font, Phone Number and NRC tools
-- ⚙️ Extend Str, Builder, Request, Collection and Validator
+- 🇲🇲 Include Myanmar Font, Phone Number, NRC and Date tools
+- ⚙️ Extend Str, Eloquent Builder, Query Builder, Request, Collection, Validator and Carbon
 - 🤝 Support Laravel 10.\* | 9.\* | 8.\* | 7.\* | 6.\*
 
 ## Installation
@@ -17,13 +17,20 @@ A package for Myanmar tools which extend Laravel’s core.
 composer require pyaesoneaung/laravel-myanmar-tools
 ```
 
+## Version Compatibilities
+
+| Laravel  | Package |
+| ------------- | ------------- |
+| 9.x - 10.x  | 3.x  |
+| 6.x - 10.x  | 2.x  |
+
 ## Documentation
 
 📚 Read the full documentation at [laravel-myanmar-tools.com](https://laravel-myanmar-tools.com)
 
 ## Basic Usage
 
-Convert Zawgyi To Unicode
+Str
 
 ```php
 use Illuminate\Support\Str;
@@ -33,24 +40,50 @@ Str::zgToUni('ျမန္မာျပည္');
 // မြန်မာပြည်
 ```
 
-Check Mpt
+Eloquent Builder
 
 ```php
-use Illuminate\Support\Str;
+use App\Models\Customer;
 
-Str::isMpt('09250000000');
-
-// true
+Customer::whereMpt('phone')->first();
 ```
 
-Normalize NRC
+Request
 
 ```php
-use Illuminate\Support\Str;
+// https://{domain}.com/{path}?phone=09250000000
 
-Str::normalizeNrc('၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆');
+$request->telecomName('phone');
 
-// 12/OUKAMA(N)123456
+// mpt
+```
+
+Collection
+
+```php
+$data = ['မြန်မာပြည်'];
+
+collect($data)->uniToZg()->toArray();
+
+// ['ျမန္မာျပည္']
+```
+
+Validation
+
+```php
+$request->validate([
+    'phone' => ['required', 'mpt'],
+]);
+```
+
+Carbon
+
+```php
+use Illuminate\Support\Carbon;
+
+Carbon::parse('2023-07-19')->isMartyrsDay();
+
+// true
 ```
 
 And more...
