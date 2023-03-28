@@ -15,6 +15,8 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        $this->registerLang();
+        
         $this->registerStrMacros();
         $this->registerRequestMacros();
         $this->registerCollectionMacros();
@@ -22,8 +24,6 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         $this->registerQueryBuilderMacros();
         $this->registerValidatorMacros();
         $this->registerCarbonMacros();
-
-        $this->registerLang();
     }
 
     private function registerStrMacros(): void
