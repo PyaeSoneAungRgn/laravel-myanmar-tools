@@ -16,7 +16,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerLang();
-        
+
         $this->registerStrMacros();
         $this->registerRequestMacros();
         $this->registerCollectionMacros();
@@ -112,25 +112,25 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
     {
         return [
             // Telecom
-            'isMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Str\IsMyanmarPhoneNumber::class,
-            'telecomName' => \PyaeSoneAung\LaravelMyanmarTools\Str\TelecomName::class,
-            'isMpt' => \PyaeSoneAung\LaravelMyanmarTools\Str\IsMpt::class,
-            'isOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Str\IsOoredoo::class,
-            'isTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Str\IsTelenor::class,
-            'isMec' => \PyaeSoneAung\LaravelMyanmarTools\Str\IsMec::class,
-            'isMytel' => \PyaeSoneAung\LaravelMyanmarTools\Str\IsMytel::class,
-            'normalizeMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Str\NormalizeMyanmarPhoneNumber::class,
+            'isMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsMyanmarPhoneNumber::class,
+            'telecomName' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\TelecomName::class,
+            'isMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsMpt::class,
+            'isOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsOoredoo::class,
+            'isTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsTelenor::class,
+            'isMec' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsMec::class,
+            'isMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsMytel::class,
+            'normalizeMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\NormalizeMyanmarPhoneNumber::class,
 
             // Font
-            'isZawgyiFont' => \PyaeSoneAung\LaravelMyanmarTools\Str\IsZawgyiFont::class,
-            'isUnicodeFont' => \PyaeSoneAung\LaravelMyanmarTools\Str\IsUnicodeFont::class,
-            'detectMyanmarFont' => \PyaeSoneAung\LaravelMyanmarTools\Str\DetectMyanmarFont::class,
-            'uniToZg' => \PyaeSoneAung\LaravelMyanmarTools\Str\UniToZg::class,
-            'zgToUni' => \PyaeSoneAung\LaravelMyanmarTools\Str\ZgToUni::class,
+            'isZawgyiFont' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsZawgyiFont::class,
+            'isUnicodeFont' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsUnicodeFont::class,
+            'detectMyanmarFont' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\DetectMyanmarFont::class,
+            'uniToZg' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\UniToZg::class,
+            'zgToUni' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\ZgToUni::class,
 
             // NRC
-            'isNrc' => \PyaeSoneAung\LaravelMyanmarTools\Str\IsNrc::class,
-            'normalizeNrc' => \PyaeSoneAung\LaravelMyanmarTools\Str\NormalizeNrc::class,
+            'isNrc' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsNrc::class,
+            'normalizeNrc' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\NormalizeNrc::class,
         ];
     }
 
@@ -138,25 +138,25 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
     {
         return [
             // Telecom
-            'isMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Request\IsMyanmarPhoneNumber::class,
-            'telecomName' => \PyaeSoneAung\LaravelMyanmarTools\Request\TelecomName::class,
-            'isMpt' => \PyaeSoneAung\LaravelMyanmarTools\Request\IsMpt::class,
-            'isOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Request\IsOoredoo::class,
-            'isTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Request\IsTelenor::class,
-            'isMec' => \PyaeSoneAung\LaravelMyanmarTools\Request\IsMec::class,
-            'isMytel' => \PyaeSoneAung\LaravelMyanmarTools\Request\IsMytel::class,
-            'normalizeMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Request\NormalizeMyanmarPhoneNumber::class,
+            'isMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsMyanmarPhoneNumber::class,
+            'telecomName' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\TelecomName::class,
+            'isMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsMpt::class,
+            'isOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsOoredoo::class,
+            'isTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsTelenor::class,
+            'isMec' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsMec::class,
+            'isMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsMytel::class,
+            'normalizeMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\NormalizeMyanmarPhoneNumber::class,
 
             // Font
-            'isZawgyiFont' => \PyaeSoneAung\LaravelMyanmarTools\Request\IsZawgyiFont::class,
-            'isUnicodeFont' => \PyaeSoneAung\LaravelMyanmarTools\Request\IsUnicodeFont::class,
-            'detectMyanmarFont' => \PyaeSoneAung\LaravelMyanmarTools\Request\DetectMyanmarFont::class,
-            'uniToZg' => \PyaeSoneAung\LaravelMyanmarTools\Request\UniToZg::class,
-            'zgToUni' => \PyaeSoneAung\LaravelMyanmarTools\Request\ZgToUni::class,
+            'isZawgyiFont' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsZawgyiFont::class,
+            'isUnicodeFont' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsUnicodeFont::class,
+            'detectMyanmarFont' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\DetectMyanmarFont::class,
+            'uniToZg' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\UniToZg::class,
+            'zgToUni' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\ZgToUni::class,
 
             // NRC
-            'isNrc' => \PyaeSoneAung\LaravelMyanmarTools\Request\IsNrc::class,
-            'normalizeNrc' => \PyaeSoneAung\LaravelMyanmarTools\Request\NormalizeNrc::class,
+            'isNrc' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsNrc::class,
+            'normalizeNrc' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\NormalizeNrc::class,
         ];
     }
 
@@ -164,16 +164,16 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
     {
         return [
             // Telecom
-            'whereMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Collection\WhereMyanmarPhoneNumber::class,
-            'whereMpt' => \PyaeSoneAung\LaravelMyanmarTools\Collection\WhereMpt::class,
-            'whereOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Collection\WhereOoredoo::class,
-            'whereTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Collection\WhereTelenor::class,
-            'whereMec' => \PyaeSoneAung\LaravelMyanmarTools\Collection\WhereMec::class,
-            'whereMytel' => \PyaeSoneAung\LaravelMyanmarTools\Collection\WhereMytel::class,
+            'whereMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Collection\WhereMyanmarPhoneNumber::class,
+            'whereMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Collection\WhereMpt::class,
+            'whereOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Collection\WhereOoredoo::class,
+            'whereTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Collection\WhereTelenor::class,
+            'whereMec' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Collection\WhereMec::class,
+            'whereMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Collection\WhereMytel::class,
 
             // Font
-            'zgToUni' => \PyaeSoneAung\LaravelMyanmarTools\Collection\ZgToUni::class,
-            'uniToZg' => \PyaeSoneAung\LaravelMyanmarTools\Collection\UniToZg::class,
+            'zgToUni' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Collection\ZgToUni::class,
+            'uniToZg' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Collection\UniToZg::class,
         ];
     }
 
@@ -181,12 +181,12 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
     {
         return [
             // Telecom
-            'whereMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Eloquent\WhereMyanmarPhoneNumber::class,
-            'whereMpt' => \PyaeSoneAung\LaravelMyanmarTools\Eloquent\WhereMpt::class,
-            'whereOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Eloquent\WhereOoredoo::class,
-            'whereTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Eloquent\WhereTelenor::class,
-            'whereMec' => \PyaeSoneAung\LaravelMyanmarTools\Eloquent\WhereMec::class,
-            'whereMytel' => \PyaeSoneAung\LaravelMyanmarTools\Eloquent\WhereMytel::class,
+            'whereMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Eloquent\WhereMyanmarPhoneNumber::class,
+            'whereMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Eloquent\WhereMpt::class,
+            'whereOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Eloquent\WhereOoredoo::class,
+            'whereTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Eloquent\WhereTelenor::class,
+            'whereMec' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Eloquent\WhereMec::class,
+            'whereMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Eloquent\WhereMytel::class,
         ];
     }
 
@@ -194,36 +194,36 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
     {
         return [
             // Telecom
-            'whereMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereMyanmarPhoneNumber::class,
-            'whereMpt' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereMpt::class,
-            'whereOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereOoredoo::class,
-            'whereTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereTelenor::class,
-            'whereMec' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereMec::class,
-            'whereMytel' => \PyaeSoneAung\LaravelMyanmarTools\Query\WhereMytel::class,
+            'whereMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Query\WhereMyanmarPhoneNumber::class,
+            'whereMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Query\WhereMpt::class,
+            'whereOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Query\WhereOoredoo::class,
+            'whereTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Query\WhereTelenor::class,
+            'whereMec' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Query\WhereMec::class,
+            'whereMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Query\WhereMytel::class,
         ];
     }
 
     private function validatorExtends(): array
     {
         return [
-            'myanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Validator\MyanmarPhoneNumber::class,
-            'mpt' => \PyaeSoneAung\LaravelMyanmarTools\Validator\Mpt::class,
-            'ooredoo' => \PyaeSoneAung\LaravelMyanmarTools\Validator\Ooredoo::class,
-            'telenor' => \PyaeSoneAung\LaravelMyanmarTools\Validator\Telenor::class,
-            'mec' => \PyaeSoneAung\LaravelMyanmarTools\Validator\Mec::class,
-            'mytel' => \PyaeSoneAung\LaravelMyanmarTools\Validator\Mytel::class,
-            'nrc' => \PyaeSoneAung\LaravelMyanmarTools\Validator\Nrc::class,
+            'myanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\MyanmarPhoneNumber::class,
+            'mpt' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\Mpt::class,
+            'ooredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\Ooredoo::class,
+            'telenor' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\Telenor::class,
+            'mec' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\Mec::class,
+            'mytel' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\Mytel::class,
+            'nrc' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\Nrc::class,
         ];
     }
 
     private function carbonMacros(): array
     {
         return [
-            'isIndependenceDay' => \PyaeSoneAung\LaravelMyanmarTools\Carbon\IsIndependenceDay::class,
-            'isUnionDay' => \PyaeSoneAung\LaravelMyanmarTools\Carbon\IsUnionDay::class,
-            'isPeasantsDay' => \PyaeSoneAung\LaravelMyanmarTools\Carbon\IsPeasantsDay::class,
-            'isLabourDay' => \PyaeSoneAung\LaravelMyanmarTools\Carbon\IsLabourDay::class,
-            'isMartyrsDay' => \PyaeSoneAung\LaravelMyanmarTools\Carbon\IsMartyrsDay::class,
+            'isIndependenceDay' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Carbon\IsIndependenceDay::class,
+            'isUnionDay' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Carbon\IsUnionDay::class,
+            'isPeasantsDay' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Carbon\IsPeasantsDay::class,
+            'isLabourDay' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Carbon\IsLabourDay::class,
+            'isMartyrsDay' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Carbon\IsMartyrsDay::class,
         ];
     }
 

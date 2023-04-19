@@ -1,6 +1,7 @@
 <?php
 
 use LaravelMyanmarTools\PhoneNumber\Enums\Telecom;
+use PyaeSoneAung\LaravelMyanmarTools\Helpers\RegularExpression;
 
 it('can filter myanmar phone number', function () {
     expect(
@@ -9,7 +10,7 @@ it('can filter myanmar phone number', function () {
 
     expect(
         users()->query()->whereMyanmarPhoneNumber('phone')->getBindings()
-    )->toBe([Telecom::ALL->getRegex()]);
+    )->toBe([RegularExpression::sanitize(Telecom::ALL->getRegex())]);
 });
 
 it('can filter mpt number', function () {
@@ -19,7 +20,7 @@ it('can filter mpt number', function () {
 
     expect(
         users()->query()->whereMpt('phone')->getBindings()
-    )->toBe([Telecom::MPT->getRegex()]);
+    )->toBe([RegularExpression::sanitize(Telecom::MPT->getRegex())]);
 });
 
 it('can filter ooredoo number', function () {
@@ -29,7 +30,7 @@ it('can filter ooredoo number', function () {
 
     expect(
         users()->query()->whereOoredoo('phone')->getBindings()
-    )->toBe([Telecom::OOREDOO->getRegex()]);
+    )->toBe([RegularExpression::sanitize(Telecom::OOREDOO->getRegex())]);
 });
 
 it('can filter telenor number', function () {
@@ -39,7 +40,7 @@ it('can filter telenor number', function () {
 
     expect(
         users()->query()->whereTelenor('phone')->getBindings()
-    )->toBe([Telecom::TELENOR->getRegex()]);
+    )->toBe([RegularExpression::sanitize(Telecom::TELENOR->getRegex())]);
 });
 
 it('can filter mec number', function () {
@@ -49,7 +50,7 @@ it('can filter mec number', function () {
 
     expect(
         users()->query()->whereMec('phone')->getBindings()
-    )->toBe([Telecom::MEC->getRegex()]);
+    )->toBe([RegularExpression::sanitize(Telecom::MEC->getRegex())]);
 });
 
 it('can filter mytel number', function () {
@@ -59,5 +60,5 @@ it('can filter mytel number', function () {
 
     expect(
         users()->query()->whereMytel('phone')->getBindings()
-    )->toBe([Telecom::MYTEL->getRegex()]);
+    )->toBe([RegularExpression::sanitize(Telecom::MYTEL->getRegex())]);
 });
