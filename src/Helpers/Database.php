@@ -3,6 +3,7 @@
 namespace PyaeSoneAung\LaravelMyanmarTools\Helpers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use PyaeSoneAung\LaravelMyanmarTools\Exceptions\UnsupportedDatabaseDriver;
 
 class Database
@@ -12,7 +13,7 @@ class Database
         $driver = DB::getDriverName();
         $supporrtedDrivers = [
             'mysql',
-            'pgsql'
+            'pgsql',
         ];
 
         if (! in_array($driver, $supporrtedDrivers)) {
@@ -22,5 +23,12 @@ class Database
         return $driver == 'pgsql'
             ? '~'
             : 'REGEXP';
+    }
+
+    public static function sanitizeRegex(string $val): string
+    {
+        return Str::of($val)
+            ->replaceFirst('/', '')
+            ->replaceLast('/', '');
     }
 }

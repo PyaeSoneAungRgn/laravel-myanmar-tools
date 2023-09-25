@@ -1,7 +1,7 @@
 <?php
 
 use LaravelMyanmarTools\PhoneNumber\Enums\Telecom;
-use PyaeSoneAung\LaravelMyanmarTools\Helpers\RegularExpression;
+use PyaeSoneAung\LaravelMyanmarTools\Helpers\Database;
 
 it('can filter myanmar phone number', function () {
     expect(
@@ -10,7 +10,7 @@ it('can filter myanmar phone number', function () {
 
     expect(
         usersTbl()->whereMyanmarPhoneNumber('phone')->getBindings()
-    )->toBe([RegularExpression::sanitize(Telecom::ALL->getRegex())]);
+    )->toBe([Database::sanitizeRegex(Telecom::ALL->getRegex())]);
 });
 
 it('can filter mpt number', function () {
@@ -20,7 +20,7 @@ it('can filter mpt number', function () {
 
     expect(
         usersTbl()->whereMpt('phone')->getBindings()
-    )->toBe([RegularExpression::sanitize(Telecom::MPT->getRegex())]);
+    )->toBe([Database::sanitizeRegex(Telecom::MPT->getRegex())]);
 });
 
 it('can filter ooredoo number', function () {
@@ -30,7 +30,7 @@ it('can filter ooredoo number', function () {
 
     expect(
         usersTbl()->whereOoredoo('phone')->getBindings()
-    )->toBe([RegularExpression::sanitize(Telecom::OOREDOO->getRegex())]);
+    )->toBe([Database::sanitizeRegex(Telecom::OOREDOO->getRegex())]);
 });
 
 it('can filter telenor number', function () {
@@ -40,7 +40,7 @@ it('can filter telenor number', function () {
 
     expect(
         usersTbl()->whereTelenor('phone')->getBindings()
-    )->toBe([RegularExpression::sanitize(Telecom::TELENOR->getRegex())]);
+    )->toBe([Database::sanitizeRegex(Telecom::TELENOR->getRegex())]);
 });
 
 it('can filter mec number', function () {
@@ -50,7 +50,7 @@ it('can filter mec number', function () {
 
     expect(
         usersTbl()->whereMec('phone')->getBindings()
-    )->toBe([RegularExpression::sanitize(Telecom::MEC->getRegex())]);
+    )->toBe([Database::sanitizeRegex(Telecom::MEC->getRegex())]);
 });
 
 it('can filter mytel number', function () {
@@ -60,5 +60,5 @@ it('can filter mytel number', function () {
 
     expect(
         usersTbl()->whereMytel('phone')->getBindings()
-    )->toBe([RegularExpression::sanitize(Telecom::MYTEL->getRegex())]);
+    )->toBe([Database::sanitizeRegex(Telecom::MYTEL->getRegex())]);
 });

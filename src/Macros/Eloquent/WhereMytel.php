@@ -4,7 +4,6 @@ namespace PyaeSoneAung\LaravelMyanmarTools\Macros\Eloquent;
 
 use Illuminate\Database\Eloquent\Builder;
 use LaravelMyanmarTools\PhoneNumber\Enums\Telecom;
-use PyaeSoneAung\LaravelMyanmarTools\Helpers\RegularExpression;
 use PyaeSoneAung\LaravelMyanmarTools\Helpers\Database;
 
 class WhereMytel
@@ -16,7 +15,7 @@ class WhereMytel
             return $this->where(
                 $column,
                 Database::getRegexOpreator(),
-                RegularExpression::sanitize(Telecom::MYTEL->getRegex())
+                Database::sanitizeRegex(Telecom::MYTEL->getRegex())
             );
         };
     }

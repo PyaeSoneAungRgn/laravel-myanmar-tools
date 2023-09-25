@@ -4,7 +4,6 @@ namespace PyaeSoneAung\LaravelMyanmarTools\Macros\Query;
 
 use Illuminate\Database\Query\Builder;
 use LaravelMyanmarTools\PhoneNumber\Enums\Telecom;
-use PyaeSoneAung\LaravelMyanmarTools\Helpers\RegularExpression;
 use PyaeSoneAung\LaravelMyanmarTools\Helpers\Database;
 
 class WhereOoredoo
@@ -16,7 +15,7 @@ class WhereOoredoo
             return $this->where(
                 $column,
                 Database::getRegexOpreator(),
-                RegularExpression::sanitize(Telecom::OOREDOO->getRegex())
+                Database::sanitizeRegex(Telecom::OOREDOO->getRegex())
             );
         };
     }

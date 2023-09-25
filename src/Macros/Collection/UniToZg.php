@@ -10,7 +10,7 @@ class UniToZg
 {
     public function __invoke()
     {
-        return function (?string $key = null): Collection {
+        return function (string $key = null): Collection {
             /** @var \Illuminate\Support\Collection $this */
             return $this->map(function ($item) use ($key) {
                 if ($key) {
