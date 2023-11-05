@@ -3,6 +3,7 @@
 namespace PyaeSoneAung\LaravelMyanmarTools\Tests\Macro;
 
 use Illuminate\Http\Request;
+use LaravelMyanmarTools\PhoneNumber\Enums\Network;
 use PyaeSoneAung\LaravelMyanmarTools\Tests\TestCase;
 
 class RequestTest extends TestCase
@@ -171,6 +172,15 @@ class RequestTest extends TestCase
     }
 
     /** @test */
+    public function it_can_get_telecom_network_type()
+    {
+        $request = $this->createRequest([
+            'mpt' => static::MPT_PHONE_NO,
+        ]);
+        $this->assertEquals(Network::GSM->getValue(), $request->telecomNetworkType('mpt'));
+    }
+
+    /** @test */
     public function it_can_normalize_myanmar_phone_number()
     {
         $request = $this->createRequest([
@@ -206,5 +216,59 @@ class RequestTest extends TestCase
 
         $this->assertEquals(static::NRC_EN, $request->normalizeNrc('nrc_en'));
         $this->assertEquals(static::NRC_MM, $request->normalizeNrc('nrc_mm', 'mm'));
+    }
+
+    /** @test */
+    public function it_can_extract_myanmar_phone_number()
+    {
+        $request = $this->createRequest([
+            'text' => 'မောင်မောင်ရဲ့ ဖုန်းနံပါတ်များမှာ ၀၉၂၅၀၀၀၀၀၀၀ နှင့် ၀၉၉၇၀၀၀၀၀၀၀ တို့ဖြစ်ပါသည်။',
+        ]);
+        $this->assertEquals([static::MPT_PHONE_NO, static::OOREDOO_PHONE_NO], $request->extractMyanmarPhoneNumber('text'));
+    }
+
+    /** @test */
+    public function it_can_extract_mpt_number()
+    {
+        $request = $this->createRequest([
+            'text' => 'မောင်မောင်ရဲ့ ဖုန်းနံပါတ်မှာ 09250000000 ဖြစ်ပါသည်။',
+        ]);
+        $this->assertEquals([static::MPT_PHONE_NO], $request->extractMpt('text'));
+    }
+
+    /** @test */
+    public function it_can_extract_ooredoo_number()
+    {
+        $request = $this->createRequest([
+            'text' => 'မောင်မောင်ရဲ့ ဖုန်းနံပါတ်မှာ 09970000000 ဖြစ်ပါသည်။',
+        ]);
+        $this->assertEquals([static::OOREDOO_PHONE_NO], $request->extractOoredoo('text'));
+    }
+
+    /** @test */
+    public function it_can_extract_telenor_number()
+    {
+        $request = $this->createRequest([
+            'text' => 'မောင်မောင်ရဲ့ ဖုန်းနံပါတ်မှာ 09790000000 ဖြစ်ပါသည်။',
+        ]);
+        $this->assertEquals([static::TELENOR_PHONE_NO], $request->extractTelenor('text'));
+    }
+
+    /** @test */
+    public function it_can_extract_mec_number()
+    {
+        $request = $this->createRequest([
+            'text' => 'မောင်မောင်ရဲ့ ဖုန်းနံပါတ်မှာ 0930000000 ဖြစ်ပါသည်။',
+        ]);
+        $this->assertEquals([static::MEC_PHONE_NO], $request->extractMec('text'));
+    }
+
+    /** @test */
+    public function it_can_extract_mytel_number()
+    {
+        $request = $this->createRequest([
+            'text' => 'မောင်မောင်ရဲ့ ဖုန်းနံပါတ်မှာ 09690000000 ဖြစ်ပါသည်။',
+        ]);
+        $this->assertEquals([static::MYTEL_PHONE_NO], $request->extractMytel('text'));
     }
 }

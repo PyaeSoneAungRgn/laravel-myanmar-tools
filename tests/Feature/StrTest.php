@@ -3,6 +3,7 @@
 namespace PyaeSoneAung\LaravelMyanmarTools\Tests\Macro;
 
 use Illuminate\Support\Str;
+use LaravelMyanmarTools\PhoneNumber\Enums\Network;
 use PyaeSoneAung\LaravelMyanmarTools\Tests\TestCase;
 
 class StrTest extends TestCase
@@ -113,6 +114,12 @@ class StrTest extends TestCase
     /** @test */
     public function it_can_get_telecom_name()
     {
+        $this->assertEquals(Network::GSM->getValue(), Str::telecomNetworkType(static::MPT_PHONE_NO));
+    }
+
+    /** @test */
+    public function it_can_get_telecom_network_type()
+    {
         $this->assertEquals(static::MPT, Str::telecomName(static::MPT_PHONE_NO));
         $this->assertEquals(static::OOREDOO, Str::telecomName(static::OOREDOO_PHONE_NO));
         $this->assertEquals(static::TELENOR, Str::telecomName(static::TELENOR_PHONE_NO));
@@ -141,5 +148,41 @@ class StrTest extends TestCase
     {
         $this->assertEquals(Str::normalizeNrc('12/OuKaMa(Naing)123456'), static::NRC_EN);
         $this->assertEquals(Str::normalizeNrc('၁၂/ဥကမ(နိုင်)၁၂၃၄၅၆', 'mm'), static::NRC_MM);
+    }
+
+    /** @test */
+    public function it_can_extract_myanmar_phone_number()
+    {
+        $this->assertEquals([static::MPT_PHONE_NO, static::OOREDOO_PHONE_NO], Str::extractMyanmarPhoneNumber('မောင်မောင်ရဲ့ ဖုန်းနံပါတ်များမှာ ၀၉၂၅၀၀၀၀၀၀၀ နှင့် ၀၉၉၇၀၀၀၀၀၀၀ တို့ဖြစ်ပါသည်။'));
+    }
+
+    /** @test */
+    public function it_can_extract_mpt_phone_number()
+    {
+        $this->assertEquals([static::MPT_PHONE_NO], Str::extractMpt('မောင်မောင်ရဲ့ ဖုန်းနံပါတ်မှာ 09250000000 ဖြစ်ပါသည်။'));
+    }
+
+    /** @test */
+    public function it_can_extract_ooredoo_phone_number()
+    {
+        $this->assertEquals([static::OOREDOO_PHONE_NO], Str::extractOoredoo('မောင်မောင်ရဲ့ ဖုန်းနံပါတ်မှာ 09970000000 ဖြစ်ပါသည်။'));
+    }
+
+    /** @test */
+    public function it_can_extract_telenor_phone_number()
+    {
+        $this->assertEquals([static::TELENOR_PHONE_NO], Str::extractTelenor('မောင်မောင်ရဲ့ ဖုန်းနံပါတ်မှာ 09790000000 ဖြစ်ပါသည်။'));
+    }
+
+    /** @test */
+    public function it_can_extract_mec_phone_number()
+    {
+        $this->assertEquals([static::MEC_PHONE_NO], Str::extractMec('မောင်မောင်ရဲ့ ဖုန်းနံပါတ်မှာ 0930000000 ဖြစ်ပါသည်။'));
+    }
+
+    /** @test */
+    public function it_can_extract_mytel_phone_number()
+    {
+        $this->assertEquals([static::MYTEL_PHONE_NO], Str::extractMytel('မောင်မောင်ရဲ့ ဖုန်းနံပါတ်မှာ 09690000000 ဖြစ်ပါသည်။'));
     }
 }

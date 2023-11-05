@@ -102,9 +102,9 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
 
     private function registerLang(): void
     {
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', $this->getPackageName());
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', $this->getPackageName());
         $this->publishes([
-            __DIR__ . '/../resources/lang' => base_path('/lang/vendor/' . $this->getPackageName()),
+            __DIR__.'/../resources/lang' => base_path('/lang/vendor/'.$this->getPackageName()),
         ]);
     }
 
@@ -113,13 +113,20 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         return [
             // Telecom
             'isMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsMyanmarPhoneNumber::class,
-            'telecomName' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\TelecomName::class,
             'isMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsMpt::class,
             'isOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsOoredoo::class,
             'isTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsTelenor::class,
             'isMec' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsMec::class,
             'isMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsMytel::class,
             'normalizeMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\NormalizeMyanmarPhoneNumber::class,
+            'telecomName' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\TelecomName::class,
+            'telecomNetworkType' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\TelecomNetworkType::class,
+            'extractMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\ExtractMyanmarPhoneNumber::class,
+            'extractMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\ExtractMpt::class,
+            'extractOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\ExtractOoredoo::class,
+            'extractTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\ExtractTelenor::class,
+            'extractMec' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\ExtractMec::class,
+            'extractMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\ExtractMytel::class,
 
             // Font
             'isZawgyiFont' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Str\IsZawgyiFont::class,
@@ -139,13 +146,20 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         return [
             // Telecom
             'isMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsMyanmarPhoneNumber::class,
-            'telecomName' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\TelecomName::class,
             'isMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsMpt::class,
             'isOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsOoredoo::class,
             'isTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsTelenor::class,
             'isMec' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsMec::class,
             'isMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsMytel::class,
             'normalizeMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\NormalizeMyanmarPhoneNumber::class,
+            'telecomName' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\TelecomName::class,
+            'telecomNetworkType' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\TelecomNetworkType::class,
+            'extractMyanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\ExtractMyanmarPhoneNumber::class,
+            'extractMpt' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\ExtractMpt::class,
+            'extractOoredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\ExtractOoredoo::class,
+            'extractTelenor' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\ExtractTelenor::class,
+            'extractMec' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\ExtractMec::class,
+            'extractMytel' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\ExtractMytel::class,
 
             // Font
             'isZawgyiFont' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Request\IsZawgyiFont::class,
@@ -235,6 +249,6 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
 
     private function getErrorMessage($extend): mixed
     {
-        return trans($this->getPackageName() . '::validation.' . Str::snake($extend));
+        return trans($this->getPackageName().'::validation.'.Str::snake($extend));
     }
 }
