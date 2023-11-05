@@ -13,6 +13,10 @@ class ValidatorTest extends TestCase
         $this->assertTrue(Validator::make(['phone' => '09250000000'], [
             'phone' => 'myanmarPhoneNumber',
         ])->passes());
+
+        $this->assertTrue(Validator::make(['phone' => '09250000000'], [
+            'phone' => 'myanmar_phone_number',
+        ])->passes());
     }
 
     /** @test */

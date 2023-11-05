@@ -102,9 +102,9 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
 
     private function registerLang(): void
     {
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', $this->getPackageName());
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', $this->getPackageName());
         $this->publishes([
-            __DIR__.'/../resources/lang' => base_path('/lang/vendor/'.$this->getPackageName()),
+            __DIR__ . '/../resources/lang' => base_path('/lang/vendor/' . $this->getPackageName()),
         ]);
     }
 
@@ -207,6 +207,7 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
     {
         return [
             'myanmarPhoneNumber' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\MyanmarPhoneNumber::class,
+            'myanmar_phone_number' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\MyanmarPhoneNumber::class,
             'mpt' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\Mpt::class,
             'ooredoo' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\Ooredoo::class,
             'telenor' => \PyaeSoneAung\LaravelMyanmarTools\Macros\Validator\Telenor::class,
@@ -234,6 +235,6 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
 
     private function getErrorMessage($extend): mixed
     {
-        return trans($this->getPackageName().'::validation.'.Str::snake($extend));
+        return trans($this->getPackageName() . '::validation.' . Str::snake($extend));
     }
 }
