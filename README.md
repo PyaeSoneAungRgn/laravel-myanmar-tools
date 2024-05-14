@@ -10,7 +10,7 @@ A package for Myanmar tools which extend Laravel's core.
 
 ## Official Documentation
 
-Documentation for Laravel Myanmar Tools can be found on the [laravelmyanmartools.com](https://www.laravel-myanmar-tools.com/).
+Documentation for Laravel Myanmar Tools can be found on the [laravel-myanmar-tools.com](https://www.laravel-myanmar-tools.com/).
 
 ## License
 
