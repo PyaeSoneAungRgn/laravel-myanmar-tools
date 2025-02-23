@@ -9,7 +9,7 @@ class IsMyanmarPhoneNumber
     public function __invoke()
     {
         return function (string $value): bool {
-            return (new PhoneNumber())->isMyanmarPhoneNumber($value);
+            return app(PhoneNumber::class)->isMyanmarPhoneNumber($value);
         };
     }
 }

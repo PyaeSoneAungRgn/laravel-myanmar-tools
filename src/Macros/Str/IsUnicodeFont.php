@@ -9,7 +9,7 @@ class IsUnicodeFont
     public function __invoke()
     {
         return function (string $value): bool {
-            return (new Font())->isUnicodeFont($value);
+            return app(Font::class)->isUnicodeFont($value);
         };
     }
 }

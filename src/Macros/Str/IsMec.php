@@ -9,7 +9,7 @@ class IsMec
     public function __invoke()
     {
         return function (string $value): bool {
-            return (new PhoneNumber())->isMec($value);
+            return app(PhoneNumber::class)->isMec($value);
         };
     }
 }

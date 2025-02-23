@@ -10,7 +10,7 @@ class ZgToUni
     {
         return function (string $key): string {
             /** @var \Illuminate\Http\Request $this */
-            return (new Font())->zgToUni($this->input($key));
+            return app(Font::class)->zgToUni($this->input($key));
         };
     }
 }

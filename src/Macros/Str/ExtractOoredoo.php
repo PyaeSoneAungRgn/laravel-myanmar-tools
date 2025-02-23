@@ -9,7 +9,7 @@ class ExtractOoredoo
     public function __invoke()
     {
         return function (string $value): array {
-            return (new PhoneNumber())->extractOoredoo($value);
+            return app(PhoneNumber::class)->extractOoredoo($value);
         };
     }
 }

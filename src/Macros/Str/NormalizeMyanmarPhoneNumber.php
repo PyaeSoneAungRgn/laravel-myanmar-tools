@@ -9,7 +9,7 @@ class NormalizeMyanmarPhoneNumber
     public function __invoke()
     {
         return function (string $value, string $prefix = '09'): string {
-            return (new PhoneNumber())->normalize($value, $prefix);
+            return app(PhoneNumber::class)->normalize($value, $prefix);
         };
     }
 }

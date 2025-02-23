@@ -9,7 +9,7 @@ class IsOoredoo
     public function __invoke()
     {
         return function (string $value): bool {
-            return (new PhoneNumber())->isOoredoo($value);
+            return app(PhoneNumber::class)->isOoredoo($value);
         };
     }
 }

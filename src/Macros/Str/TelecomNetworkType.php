@@ -9,7 +9,7 @@ class TelecomNetworkType
     public function __invoke()
     {
         return function (string $value): string {
-            return (new PhoneNumber())->getNetworkType($value);
+            return app(PhoneNumber::class)->getNetworkType($value);
         };
     }
 }
