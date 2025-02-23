@@ -9,7 +9,7 @@ class IsMytel
     public function __invoke()
     {
         return function (string $value): bool {
-            return (new PhoneNumber())->isMytel($value);
+            return app(PhoneNumber::class)->isMytel($value);
         };
     }
 }

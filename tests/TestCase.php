@@ -11,4 +11,11 @@ class TestCase extends OrchestraTestCase
     {
         return [LaravelMyanmarToolsServiceProvider::class];
     }
+
+    public function getEnvironmentSetUp($app)
+    {
+        parent::getEnvironmentSetUp($app);
+
+        $app['config']->set('database.default', 'mysql');
+    }
 }

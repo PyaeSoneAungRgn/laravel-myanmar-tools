@@ -9,7 +9,7 @@ class ZgToUni
     public function __invoke()
     {
         return function (string $value): string {
-            return (new Font())->zgToUni($value);
+            return app(Font::class)->zgToUni($value);
         };
     }
 }

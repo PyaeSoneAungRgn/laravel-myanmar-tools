@@ -10,7 +10,7 @@ class DetectMyanmarFont
     {
         return function (string $key): string {
             /** @var \Illuminate\Http\Request $this */
-            return (new Font())->detectMyanmarFont($this->input($key));
+            return app(Font::class)->detectMyanmarFont($this->input($key));
         };
     }
 }

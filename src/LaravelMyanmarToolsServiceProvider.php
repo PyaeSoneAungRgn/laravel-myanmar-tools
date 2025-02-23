@@ -10,11 +10,16 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use LaravelMyanmarTools\Font\Font;
+use LaravelMyanmarTools\Nrc\Nrc;
+use LaravelMyanmarTools\PhoneNumber\PhoneNumber;
 
 class LaravelMyanmarToolsServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        $this->bootstrap();
+
         $this->registerLang();
 
         $this->registerStrMacros();
@@ -24,6 +29,21 @@ class LaravelMyanmarToolsServiceProvider extends ServiceProvider
         $this->registerQueryBuilderMacros();
         $this->registerValidatorMacros();
         $this->registerCarbonMacros();
+    }
+
+    private function bootstrap(): void
+    {
+        $this->app->singleton(Font::class, function () {
+            return new Font;
+        });
+
+        $this->app->singleton(PhoneNumber::class, function () {
+            return new PhoneNumber;
+        });
+
+        $this->app->singleton(Nrc::class, function () {
+            return new Nrc;
+        });
     }
 
     private function registerStrMacros(): void

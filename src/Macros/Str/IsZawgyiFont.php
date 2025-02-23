@@ -9,7 +9,7 @@ class IsZawgyiFont
     public function __invoke()
     {
         return function (string $value): bool {
-            return (new Font())->isZawgyiFont($value);
+            return app(Font::class)->isZawgyiFont($value);
         };
     }
 }

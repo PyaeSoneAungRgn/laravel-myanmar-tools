@@ -8,6 +8,18 @@ use PyaeSoneAung\LaravelMyanmarTools\Tests\TestCase;
 class ValidatorTest extends TestCase
 {
     /** @test */
+    public function it_can_validate_with_nullable()
+    {
+        $this->assertTrue(Validator::make(['phone' => '09250000000'], [
+            'phone' => 'nullable|myanmarPhoneNumber',
+        ])->passes());
+
+        $this->assertTrue(Validator::make(['phone' => '09250000000'], [
+            'phone' => 'myanmar_phone_number',
+        ])->passes());
+    }
+
+    /** @test */
     public function it_can_validate_myanmar_phone_number()
     {
         $this->assertTrue(Validator::make(['phone' => '09250000000'], [

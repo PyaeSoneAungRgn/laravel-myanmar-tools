@@ -9,7 +9,7 @@ class ExtractMpt
     public function __invoke()
     {
         return function (string $value): array {
-            return (new PhoneNumber())->extractMpt($value);
+            return app(PhoneNumber::class)->extractMpt($value);
         };
     }
 }

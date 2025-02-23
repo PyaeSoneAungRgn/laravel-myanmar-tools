@@ -9,7 +9,7 @@ class TelecomName
     public function __invoke()
     {
         return function (string $value): string {
-            return (new PhoneNumber())->getTelecom($value);
+            return app(PhoneNumber::class)->getTelecom($value);
         };
     }
 }

@@ -9,7 +9,7 @@ class ExtractMytel
     public function __invoke()
     {
         return function (string $value): array {
-            return (new PhoneNumber())->extractMytel($value);
+            return app(PhoneNumber::class)->extractMytel($value);
         };
     }
 }
