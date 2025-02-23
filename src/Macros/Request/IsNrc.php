@@ -8,9 +8,14 @@ class IsNrc
 {
     public function __invoke()
     {
-        return function (string $key): bool {
+        return function (?string $key = null): bool {
             /** @var \Illuminate\Http\Request $this */
-            return Str::isNrc($this->input($key));
+            $value = $this->input($key);
+            if ($value === null) {
+                return false;
+            }
+
+            return Str::isNrc($value);
         };
     }
 }
